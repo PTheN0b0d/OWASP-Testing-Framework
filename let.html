@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Search Engine Reconnaissance for Information Leakage</title>
+</head>
+<body>
+	<h2>Introduction</h2>
+	<p>Conducting search engine reconnaissance for information leakage is a task under the Information Gathering stage of the WSTG that involves using search engines to discover sensitive information that may have been inadvertently exposed on the internet.</p>
+	
+	<h3>Test Objectives</h3>
+	<ul>
+		<li>Identify what sensitive design and configuration information of the application, system, or organization is exposed directly (on the organization's website) or indirectly (via third-party services).</li>
+		<li>Confidential files or documents that have been inadvertently exposed on the internet</li>
+		<li>Sensitive information that has been cached or indexed by search engines</li>
+		<li>Configuration files or scripts that reveal system details or credentials</li>
+		<li>Old or vulnerable versions of web applications that are still accessible online</li>
+	</ul>
+
+	<h3>How to Test</h3>
+	<p>To automate this task, testers can use specialized search engines or automated tools that are designed to scan the internet for specific types of information. Some examples of these tools include:</p>
+
+	<ul>
+		<li>Shodan: A search engine that indexes information about internet-connected devices and systems, including web applications.</li>
+		<li>Google Dorks: Specialized search queries that can be used to identify specific types of information on the internet.</li>
+		<li>TheHarvester: An open-source tool that can be used to gather email addresses, subdomains, and other information from public sources like search engines and social media.</li>
+		<li>Baidu, China's most popular search engine.</li>
+		<li>Bing, a search engine owned and operated by Microsoft, and the second most popular worldwide. Supports advanced search keywords.</li>
+		<li>binsearch.info, a search engine for binary Usenet newsgroups.</li>
+		<li>Common Crawl, "an open repository of web crawl data that can be accessed and analyzed by anyone."</li>
+		<li>DuckDuckGo, a privacy-focused search engine that compiles results from many different sources. Supports search syntax.</li>
+		<li>Internet Archive Wayback Machine, "building a digital library of Internet sites and other cultural artifacts in digital form."</li>
+	</ul>
+
+	<h3>Example for Pentester :</h3>
+
+	<h4>Google Search :</h4>
+	<ol>
+		<li>Searching for confidential files:
+			<code>intitle:"index of" "passwords.txt" OR "passwords.doc"</code>
+		</li>
+		<li>Searching for login pages:
+			<code>intitle:"index of" "passwords.txt" OR "passwords.doc"</code>
+		</li>
+		<li>Searching for outdated software:
+			<code>intitle:"index of" "phpmyadmin" OR "mysql" OR "wordpress"</code>
+		</li>
+		<li>Finding email addresses:
+			<code>"email" site:targetwebsite.com</code>
+		</li>
+	</ol>
+
+	<h4>Shodan Query :</h4>
+	<ol>
+		<li><code>"hostname:demo.testfire.net"</code> - This query will return all devices (including web servers) with the hostname "demo.testfire.net."</li>
+		<li><code>"ssl:demo.testfire.net"</code> - This query will return all devices that have
