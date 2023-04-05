@@ -1,7 +1,125 @@
-<h2>Pentester Checklist: Conducting Search Engine Discovery Reconnaissance for Information Leakage</h2>
 
-<ul>
-  <li><input type="checkbox" name="ghdb" id="ghdb"><label for="ghdb">Check relevant GHDB (https://www.exploit-db.com/google-hacking-database) queries to identify potential information leakage.</label></li>
-  <li><input type="checkbox" name="metagoofil" id="metagoofil"><label for="metagoofil">Utilize automation tools such as Metagoofil to search and download specific file types or other sensitive information.</label></li>
-  <li><input type="checkbox" name="shodan" id="shodan"><label for="shodan">Conduct searches using specialized search engines like Shodan to identify internet-facing devices or systems that might be vulnerable to exploitation or information leakage.</label></li>
-</ul>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.collapsible {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 18px;
+}
+
+.active, .collapsible:hover {
+  background-color: #ccc;
+}
+
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+</style>
+</head>
+<body>
+
+
+<button class="collapsible">INFORMATION GATHERING</button>
+<div class="content">
+  <ul>
+  
+    <li style="color: red;">Open Source Reconnaissance</li>
+    <ul>
+    
+      <li><input type="checkbox" checked>Perform Google Dorks search</li>
+    
+      <li><input type="checkbox" >Perform OSINT</li>
+    
+    </ul>
+  
+    <li style="color: red;">Fingerprinting Web Server</li>
+    <ul>
+    
+      <li><input type="checkbox" >Find the type of Web Server</li>
+    
+      <li><input type="checkbox" checked>Find the version details of the Web Server</li>
+    
+    </ul>
+  
+  </ul>
+</div>
+
+<button class="collapsible">CONFIGURATION & DEPLOYMENT MANAGEMENT TESTING</button>
+<div class="content">
+  <ul>
+  
+    <li style="color: red;">Looking For Metafiles</li>
+    <ul>
+    
+      <li><input type="checkbox" >View the Robots.txt file</li>
+    
+      <li><input type="checkbox" >View the Sitemap.xml file</li>
+    
+      <li><input type="checkbox" >View the Humans.txt file</li>
+    
+      <li><input type="checkbox" >View the Security.txt file</li>
+    
+    </ul>
+  
+    <li style="color: red;">Test Network Configuration</li>
+    <ul>
+    
+      <li><input type="checkbox" >[ ] Check the network configuration</li>
+    
+      <li><input type="checkbox" >[ ] Check for default settings</li>
+    
+      <li><input type="checkbox" >[ ] Check for default credentials</li>
+    
+    </ul>
+  
+    <li style="color: red;">Test Application Configuration</li>
+    <ul>
+    
+      <li><input type="checkbox" >[ ] Ensure only required modules are used</li>
+    
+      <li><input type="checkbox" >[ ] Ensure unwanted modules are disabled</li>
+    
+      <li><input type="checkbox" >[ ] Ensure the server can handle DOS</li>
+    
+      <li><input type="checkbox" >[ ] Check how the application is handling 4xx & 5xx errors</li>
+    
+      <li><input type="checkbox" >[ ] Check for the privilege required to run</li>
+    
+      <li><input type="checkbox" >[ ] Check logs for sensitive info</li>
+    
+    </ul>
+  
+  </ul>
+</div>
+
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
+
+</body>
+</html>
