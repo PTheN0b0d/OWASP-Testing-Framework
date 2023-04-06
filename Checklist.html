@@ -1,125 +1,139 @@
-
-<!DOCTYPE html>
 <html>
 <head>
 <style>
-.collapsible {
-  background-color: #eee;
-  color: #444;
-  cursor: pointer;
-  padding: 18px;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 18px;
-}
-
-.active, .collapsible:hover {
-  background-color: #ccc;
-}
-
-.content {
-  padding: 0 18px;
-  display: none;
-  overflow: hidden;
-  background-color: #f1f1f1;
-}
+table {border-collapse: collapse; width: 100%;}
+th, td {text-align: left; padding: 8px;}
+.sub-heading {color: blue;}
+.checklist-item {margin-left: 20px;}
+.collapsible {background-color: #777; color: white; cursor: pointer; padding: 10px; width: 100%; border: none; text-align: left; outline: none;}
+.active, .collapsible:hover {background-color: #555;}
+.content {padding: 0 10px; max-height: 0; overflow: hidden; transition: max-height 0.2s ease-out;}
 </style>
 </head>
 <body>
-
-
-<button class="collapsible">INFORMATION GATHERING</button>
+<button class="collapsible">1. INFORMATION GATHERING</button>
 <div class="content">
-  <ul>
-  
-    <li style="color: red;">Open Source Reconnaissance</li>
-    <ul>
-    
-      <li><input type="checkbox" checked>Perform Google Dorks search</li>
-    
-      <li><input type="checkbox" >Perform OSINT</li>
-    
-    </ul>
-  
-    <li style="color: red;">Fingerprinting Web Server</li>
-    <ul>
-    
-      <li><input type="checkbox" >Find the type of Web Server</li>
-    
-      <li><input type="checkbox" checked>Find the version details of the Web Server</li>
-    
-    </ul>
-  
-  </ul>
-</div>
-
-<button class="collapsible">CONFIGURATION & DEPLOYMENT MANAGEMENT TESTING</button>
+<table>
+<tr><th>Sub-Heading</th><th>Checklist Item Status</th><th>Checklist Item</th></tr>
+<tr><td class="sub-heading">1.1 -Conduct Search Engine Discovery Reconnaissance for Information Leakage</td><td></td><td></td></tr>
+<tr><td></td><td class="checklist-item"><input type="checkbox" ></td><td class="checklist-item">Check relevant GHDB (https://www.exploit-db.com/google-hacking-database) queries to identify potential information leakage.</td></tr>
+<tr><td></td><td class="checklist-item"><input type="checkbox" ></td><td class="checklist-item">Utilize automation tools such as Metagoofil to search and download specific file types or other sensitive information.</td></tr>
+<tr><td></td><td class="checklist-item"><input type="checkbox" ></td><td class="checklist-item">Conduct searches using specialized search engines like Shodan to identify internet-facing devices or systems that might be vulnerable to exploitation or information leakage.</td></tr>
+<tr><td></td><td class="checklist-item"><input type="checkbox" ></td><td class="checklist-item">Perform OSINT (https://osintframework.com/)</td></tr>
+<tr><td class="sub-heading">1.2 -Fingerprinting Web Server</td><td></td><td></td></tr>
+<tr><td></td><td class="checklist-item"><input type="checkbox" ></td><td class="checklist-item"> Use banner grabbing to analyze response headers from the web server.</td></tr>
+<tr><td></td><td class="checklist-item"><input type="checkbox" ></td><td class="checklist-item"> Analyze the HTTP response to identify server software, version, and other details unique to the HTTP response.</td></tr>
+<tr><td></td><td class="checklist-item"><input type="checkbox" ></td><td class="checklist-item"> Analyze the SSL certificate to identify server software, version, and other details.</td></tr>
+<tr><td></td><td class="checklist-item"><input type="checkbox" ></td><td class="checklist-item"> Use automated tools like Nmap, WhatWeb, and Wappalyzer to send requests to the web server and analyze the response. Note that permission from the owner of the web server is necessary before using these tools.</td></tr>
+<tr><td></td><td class="checklist-item"><input type="checkbox" ></td><td class="checklist-item"> Use tools like Netcat, Curl, and Wget for banner grabbing and data transfer between client and server.</td></tr>
+<tr><td></td><td class="checklist-item"><input type="checkbox" ></td><td class="checklist-item"> Send requests with invalid headers, parameters, methods, or HTTP versions to test the web server's response.</td></tr>
+<tr><td></td><td class="checklist-item"><input type="checkbox" ></td><td class="checklist-item"> Use automation tools like httprint, Wappalyzer, WhatWeb, and Nuclei templates to identify web technologies and server software.</td></tr>
+<tr><td class="sub-heading">1.3 -Review Webserver Metafiles</td><td></td><td></td></tr>
+<tr><td></td><td class="checklist-item"><input type="checkbox" ></td><td class="checklist-item"> Use Burp Suite or ZAP to automate the process of identifying sensitive information present in webserver metafiles.</td></tr>
+<tr><td></td><td class="checklist-item"><input type="checkbox" ></td><td class="checklist-item"> Check META tag: Check if there is any “<META NAME=”ROBOTS” ... >” entry present in the web pages. If not, then the “Robots Exclusion Protocol” defaults to “INDEX,FOLLOW” respectively.</td></tr>
+<tr><td></td><td class="checklist-item"><input type="checkbox" ></td><td class="checklist-item"> Analyze the contents: Analyze the contents of each metafile to identify any sensitive information that may be disclosed, such as directory paths, usernames, passwords, or confidential data.</td></tr>
+<tr><td class="sub-heading">1.4 -Enumerate Applications on Webserver</td><td></td><td></td></tr>
+<tr><td></td><td class="checklist-item"><input type="checkbox" ></td><td class="checklist-item">Identify the scope of your testing, including the web server IP address or domain name and the port(s) to scan.</td></tr>
+<tr><td></td><td class="checklist-item"><input type="checkbox" ></td><td class="checklist-item"> Use automated scanning tools like Nmap or Nessus to scan for open ports and running services on the web server.</td></tr>
+<tr><td></td><td class="checklist-item"><input type="checkbox" ></td><td class="checklist-item"> Analyze the web server homepage by reviewing the HTML and JavaScript code for any references to web applications.</td></tr>
+<tr><td></td><td class="checklist-item"><input type="checkbox" ></td><td class="checklist-item"> Manually browse through directories and subdirectories on the server to identify web applications.</td></tr>
+<tr><td></td><td class="checklist-item"><input type="checkbox" ></td><td class="checklist-item"> Use directory and file brute-forcing tools like DirBuster, wfuzz, gobuster, or Burp Suite to find hidden web applications.</td></tr>
+<tr><td></td><td class="checklist-item"><input type="checkbox" ></td><td class="checklist-item"> Once web applications have been identified, try appending different file extensions like “.php,” “.asp,” and “.aspx” to the application URLs to see if the server can process them.</td></tr>
+<tr><td></td><td class="checklist-item"><input type="checkbox" ></td><td class="checklist-item"> Use vulnerability scanners to identify any known vulnerabilities in the web server or its applications.</td></tr>
+<tr><td class="sub-heading">1.5 -Review Webpage Content</td><td></td><td></td></tr>
+<tr><td></td><td class="checklist-item"><input type="checkbox" ></td><td class="checklist-item">Review the HTML code of the webpage to look for any metadata tags or comments.</td></tr>
+<tr><td></td><td class="checklist-item"><input type="checkbox" ></td><td class="checklist-item"> Identify any potentially sensitive information that may have been leaked through the comments and metadata. This can include version numbers, system paths, internal IP addresses, and other confidential data.</td></tr>
+<tr><td></td><td class="checklist-item"><input type="checkbox" ></td><td class="checklist-item"> Review the page source of the webpage to determine if any comments or metadata have been hidden from view.</td></tr>
+<tr><td></td><td class="checklist-item"><input type="checkbox" ></td><td class="checklist-item"> Use automated scanning tools like Burp Suite or OWASP ZAP to identify metadata that may have been missed during a manual review.</td></tr>
+<tr><td class="sub-heading">1.6 -Identify Application Entry Points</td><td></td><td></td></tr>
+<tr><td></td><td class="checklist-item"><input type="checkbox" ></td><td class="checklist-item"> Conduct a thorough analysis of the application's architecture and components to identify potential entry points.</td></tr>
+<tr><td></td><td class="checklist-item"><input type="checkbox" ></td><td class="checklist-item"> Review documentation and diagrams of the application's architecture to identify potential entry points.</td></tr>
+<tr><td></td><td class="checklist-item"><input type="checkbox" ></td><td class="checklist-item"> Use web application scanners such as Burp Suite, OWASP ZAP, or Nikto to scan the application and identify potential entry points.</td></tr>
+</table>
+<br></div>
+<button class="collapsible">2 Configuration and Deployment Management Testing</button>
 <div class="content">
-  <ul>
-  
-    <li style="color: red;">Looking For Metafiles</li>
-    <ul>
-    
-      <li><input type="checkbox" >View the Robots.txt file</li>
-    
-      <li><input type="checkbox" >View the Sitemap.xml file</li>
-    
-      <li><input type="checkbox" >View the Humans.txt file</li>
-    
-      <li><input type="checkbox" >View the Security.txt file</li>
-    
-    </ul>
-  
-    <li style="color: red;">Test Network Configuration</li>
-    <ul>
-    
-      <li><input type="checkbox" >[ ] Check the network configuration</li>
-    
-      <li><input type="checkbox" >[ ] Check for default settings</li>
-    
-      <li><input type="checkbox" >[ ] Check for default credentials</li>
-    
-    </ul>
-  
-    <li style="color: red;">Test Application Configuration</li>
-    <ul>
-    
-      <li><input type="checkbox" >[ ] Ensure only required modules are used</li>
-    
-      <li><input type="checkbox" >[ ] Ensure unwanted modules are disabled</li>
-    
-      <li><input type="checkbox" >[ ] Ensure the server can handle DOS</li>
-    
-      <li><input type="checkbox" >[ ] Check how the application is handling 4xx & 5xx errors</li>
-    
-      <li><input type="checkbox" >[ ] Check for the privilege required to run</li>
-    
-      <li><input type="checkbox" >[ ] Check logs for sensitive info</li>
-    
-    </ul>
-  
-  </ul>
+<table>
+<tr><th>Sub-Heading</th><th>Checklist Item Status</th><th>Checklist Item</th></tr>
+<tr><td class="sub-heading">TODO</td><td></td><td></td></tr>
+</table>
+<br></div>
+<button class="collapsible">3 Identity Management Testing</button>
+<div class="content">
+<table>
+<tr><th>Sub-Heading</th><th>Checklist Item Status</th><th>Checklist Item</th></tr>
+<tr><td class="sub-heading">TODO</td><td></td><td></td></tr>
+</table>
+<br></div>
+<button class="collapsible">4.Authentication Testing</button>
+<div class="content">
+<table>
+<tr><th>Sub-Heading</th><th>Checklist Item Status</th><th>Checklist Item</th></tr>
+<tr><td class="sub-heading">TODO</td><td></td><td></td></tr>
+</table>
+<br></div>
+<button class="collapsible">5 Authorization Testing</button>
+<div class="content">
+<table>
+<tr><th>Sub-Heading</th><th>Checklist Item Status</th><th>Checklist Item</th></tr>
+<tr><td class="sub-heading">TODO</td><td></td><td></td></tr>
+</table>
+<br></div>
+<button class="collapsible">6 Session Management Testing</button>
+<div class="content">
+<table>
+<tr><th>Sub-Heading</th><th>Checklist Item Status</th><th>Checklist Item</th></tr>
+</table>
+<br></div>
+<button class="collapsible">7 Input Validation Testing</button>
+<div class="content">
+<table>
+<tr><th>Sub-Heading</th><th>Checklist Item Status</th><th>Checklist Item</th></tr>
+</table>
+<br></div>
+<button class="collapsible">8 Testing for Error Handling</button>
+<div class="content">
+<table>
+<tr><th>Sub-Heading</th><th>Checklist Item Status</th><th>Checklist Item</th></tr>
+</table>
+<br></div>
+<button class="collapsible">9 Testing for Weak Cryptography</button>
+<div class="content">
+<table>
+<tr><th>Sub-Heading</th><th>Checklist Item Status</th><th>Checklist Item</th></tr>
+</table>
+<br></div>
+<button class="collapsible">10 Business Logic Testing</button>
+<div class="content">
+<table>
+<tr><th>Sub-Heading</th><th>Checklist Item Status</th><th>Checklist Item</th></tr>
+</table>
+<br></div>
+<button class="collapsible">11 Client-side Testing</button>
+<div class="content">
+<table>
+<tr><th>Sub-Heading</th><th>Checklist Item Status</th><th>Checklist Item</th></tr>
+</table>
+<br></div>
+<button class="collapsible">12 API Testing</button>
+<div class="content">
+<table>
+<tr><th>Sub-Heading</th><th>Checklist Item Status</th><th>Checklist Item</th></tr>
+</table>
 </div>
-
-
 <script>
 var coll = document.getElementsByClassName("collapsible");
-var i;
-
-for (i = 0; i < coll.length; i++) {
+for (var i = 0; i < coll.length; i++) {
   coll[i].addEventListener("click", function() {
     this.classList.toggle("active");
     var content = this.nextElementSibling;
-    if (content.style.display === "block") {
-      content.style.display = "none";
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
     } else {
-      content.style.display = "block";
+      content.style.maxHeight = content.scrollHeight + "px";
     }
   });
 }
 </script>
-
 </body>
 </html>
