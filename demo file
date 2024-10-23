@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pentest Checklist</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .checklist {
+            display: none; /* Hide checklists by default */
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Pentest Project Details</h2>
+<form id="projectForm">
+    <label for="projectName">Project Name:</label><br>
+    <input type="text" id="projectName" required><br><br>
+
+    <label for="ticketID">Ticket ID:</label><br>
+    <input type="text" id="ticketID" required><br><br>
+
+    <label for="startDate">Start Date:</label><br>
+    <input type="date" id="startDate" required><br><br>
+
+    <label for="endDate">End Date:</label><br>
+    <input type="date" id="endDate" required><br><br>
+
+    <label for="pentestType">Pentest Type:</label><br>
+    <select id="pentestType" onchange="showChecklist()">
+        <option value="">Select Type</option>
+        <option value="black">Black Box</option>
+        <option value="grey">Grey Box</option>
+    </select>
+</form>
+
+<div id="blackBoxChecklist" class="checklist">
+    <h3>Black Box Checklist</h3>
+    <ul>
+        <li>Gather information about the target</li>
+        <li>Perform network scanning</li>
+        <li>Identify open ports and services</li>
+        <li>Conduct vulnerability assessment</li>
+    </ul>
+</div>
+
+<div id="greyBoxChecklist" class="checklist">
+    <h3>Grey Box Checklist</h3>
+    <ul>
+        <li>Review application architecture</li>
+        <li>Check user authentication mechanisms</li>
+        <li>Test for session management issues</li>
+        <li>Identify business logic vulnerabilities</li>
+    </ul>
+</div>
+
+<script>
+    function showChecklist() {
+        const pentestType = document.getElementById("pentestType").value;
+        const blackBoxChecklist = document.getElementById("blackBoxChecklist");
+        const greyBoxChecklist = document.getElementById("greyBoxChecklist");
+
+        // Hide both checklists initially
+        blackBoxChecklist.style.display = 'none';
+        greyBoxChecklist.style.display = 'none';
+
+        // Show the relevant checklist based on selection
+        if (pentestType === "black") {
+            blackBoxChecklist.style.display = 'block';
+        } else if (pentestType === "grey") {
+            greyBoxChecklist.style.display = 'block';
+        }
+    }
+</script>
+
+</body>
+</html>
