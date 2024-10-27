@@ -1158,16 +1158,185 @@
             </th>
             <th>Checklist Item</th>
         </tr>
-        <tr>
-            <td class="sub-heading">1.1 - Conduct Search Engine Discovery Reconnaissance for Information Leakage</td>
-            <td></td>
-        </tr>
-
-        <tr>
-        <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
-    <td class="checklist-item">Check for vulnerabilities like CSRF in the password change form.</td>
+   
+<tr>
+    <td class="sub-heading">5.1 - Testing Directory Traversal File Include</td>
+    <td></td>
 </tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item">Utilize security scanning tools (e.g., Burp Suite, OWASP ZAP) to identify potential directory traversal and file inclusion vulnerabilities.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item">Configure scanners to manipulate input parameters and analyze responses for anomalies.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item">Employ fuzz testing tools to generate a variety of input combinations, including potential traversal attempts.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item">Analyze application responses for unexpected behavior.</td>
+</tr>
+
+<tr>
+    <td class="sub-heading">5.2 - Testing for Bypassing Authorization Schema</td>
+    <td></td>
+</tr>
+
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item">Review and understand the application's access control policies and configurations.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item">Verify access based on different user roles.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item">Test for access to resources restricted to higher-privileged users.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item">Attempt to access administrative functions with non-administrative user credentials.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item">Test how the application handles special request headers, such as X-Forwarded-For or X-Original-URL.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item">Explore if manipulating these headers can lead to unauthorized access or bypass of security controls.</td>
+</tr>
+
+<tr>
+    <td class="sub-heading">5.3 - Testing for Privilege Escalation</td>
+    <td></td>
+</tr>
+
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item">Verify that it is not possible to modify user privileges or roles.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item">Test for the ability to access resources or functions that should be restricted to higher-privileged users.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item">Attempt to access administrative functions with non-administrative user credentials.</td>
+</tr>
+
+<tr>
+    <td class="sub-heading">5.4 - Testing for Insecure Direct Object References</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item"><strong>Identify Input Points:</strong> Enumerate all input points where the application interacts with user-controlled data, such as URLs, parameters, and form fields.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item"><strong>Manipulate Object References:</strong> Systematically manipulate object references by altering values in URLs, parameters, or input fields.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item"><strong>Test Direct Object References:</strong> Attempt to access objects directly by tampering with identifiers or references in requests.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item"><strong>Enumerate and Brute Force:</strong> Enumerate potential object references and perform brute-force attacks to discover hidden or sensitive data.</td>
+</tr>
+
+<tr>
+    <td class="sub-heading">5.5 - Testing for OAuth Weaknesses</td>
+    <td></td>
+</tr>
+
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item"><strong>Inspect OAuth Configuration:</strong> Review client ID, client secret, and OAuth endpoints for proper configuration.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item"><strong>Inspect OAuth Configuration:</strong> Check for the use of insecure client secrets.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item"><strong>Check Token Validation:</strong> Attempt to use invalid or tampered access tokens.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item"><strong>Check Token Validation:</strong> Verify that the application validates tokens issued by legitimate authorization servers.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item"><strong>Test Token Storage and Handling:</strong> Assess token storage and handling practices.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item"><strong>Test Token Storage and Handling:</strong> Check for vulnerabilities such as insecure storage or transmission of tokens.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item"><strong>Explore Token Scope Limitations:</strong> Test if the application enforces proper OAuth token scopes.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item"><strong>Explore Token Scope Limitations:</strong> Attempt to access resources with tokens that have limited scopes.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item"><strong>Examine Redirect URI Security:</strong> Verify that redirect URIs are securely registered and trusted.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item"><strong>Examine Redirect URI Security:</strong> Test for open redirect vulnerabilities.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item"><strong>Test for Token Expiration Handling:</strong> Use expired tokens to check how the application handles token expiration.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item"><strong>Test for Token Expiration Handling:</strong> Verify that tokens are automatically refreshed or reauthorized as needed.</td>
+</tr>
+
     </table>
 </div>
     
@@ -1199,4 +1368,3 @@
         
         
         <!-- Additional checklist items can be added here -->
-
