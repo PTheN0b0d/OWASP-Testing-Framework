@@ -925,20 +925,168 @@
     <td></td>
 </tr>
 <tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item">Test for direct page request (forced browsing) to identify unprotected pages.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item">Attempt parameter modification to gain unauthorized access to protected areas.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item">Check for predictable session ID generation and potential session hijacking.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item">Test for SQL injection vulnerabilities in the authentication process.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item">Assess the application's source code for potential vulnerabilities and weak comparisons.</td>
+</tr>
+        
+<tr>
     <td class="sub-heading">4.5 Testing for Vulnerable Remember Password</td>
     <td></td>
+</tr>
+
+
+        <tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item">Review the implementation of the "Remember Password" feature.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item">Identify where remembered passwords are stored.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item">Evaluate encryption and security measures for stored passwords.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item">Test the password retrieval process for authentication.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item">Verify the presence of expiry and revocation mechanisms for saved passwords.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item">Assess CORS policies to prevent unauthorized access to stored passwords.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item">Evaluate error handling for remembered password-related scenarios.</td>
 </tr>
 <tr>
     <td class="sub-heading">4.6 Testing for Browser Cache Weaknesses</td>
     <td></td>
 </tr>
+
+
+        <tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item">Understand how the web application utilizes browser caching.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item">Review Cache-Control headers for caching directives.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item">Inspect HTTPS configuration for encryption of sensitive data.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item">Test for cache poisoning by manipulating caching headers or parameters.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item">Verify cache clearing mechanisms for users to remove sensitive data.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item">Check CORS policies to prevent unauthorized access to cached sensitive data.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item">Test for persistence of sensitive data across sessions in the browser cache.</td>
+</tr>
 <tr>
     <td class="sub-heading">4.7 Testing for Weak Password Policy</td>
     <td></td>
 </tr>
+
+        <tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item">Evaluate character requirements for passwords.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item">Assess the complexity requirements for passwords, including minimum length and the use of special characters.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item">Check for restrictions on password reuse.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item">Evaluate if the application enforces password aging policies.</td>
+</tr>
 <tr>
     <td class="sub-heading">4.8 Testing for Weak Security Question Answer</td>
     <td></td>
+</tr>
+
+
+        <tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item">Review security questions for predictability.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item">Manually attempt guessing answers.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item">Use automation tools to brute force common answers.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item">Check if attempt limits are applied.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item">Test account access with known question-answer pairs.</td>
 </tr>
 <tr>
     <td class="sub-heading">4.9 Testing for Weak Password Change or Reset Functionalities</td>
@@ -946,6 +1094,51 @@
     <td></td>
 </tr>
 
+        <tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item">Assess the strength of the reset process compared to authentication.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item">Check for protections against automated attacks.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item">Evaluate vulnerability to common attacks such as SQL injection or cross-site scripting.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item">Review email-based reset mechanisms for security.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item">Assess the security of tokens sent via SMS or phone call.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item">Consider the effectiveness of using security questions for authentication.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item">Verify the need for re-authentication before changing passwords.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item">Check for vulnerabilities like CSRF in the password change form.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item">Evaluate the strength and effectiveness of the applied password policy.</td>
+</tr>
  
     </table>
 </div>
