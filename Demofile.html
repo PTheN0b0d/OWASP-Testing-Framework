@@ -314,43 +314,130 @@
             <td class="sub-heading">2.3 - Test File Extensions Handling for Sensitive Information</td>
             <td></td>
         </tr>
-
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+    <td class="checklist-item">Scan the application with automation tool such as Burp Suite.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+    <td class="checklist-item">Perform directory fuzzing as per application technology. Below are some wordlists:</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"></td>
+    <td class="checklist-item"><a href="https://github.com/orwagodfather/WordList/tree/main" target="_blank">https://github.com/orwagodfather/WordList/tree/main</a></td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"></td>
+    <td class="checklist-item"><a href="https://github.com/danielmiessler/SecLists" target="_blank">https://github.com/danielmiessler/SecLists</a></td>
+</tr>
 
         <tr>
             <td class="sub-heading">2.3 - Test File Extensions Handling for Sensitive Information</td>
             <td></td>
         </tr>
 
-
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+    <td class="checklist-item">Use vulnerability scanners, spidering and mirroring tools, and querying search engines to identify files with a given extension. <b>connection.inc, .config, .asa </b></b> </td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+    <td class="checklist-item">Manually inspect the application to identify sensitive files.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+    <td class="checklist-item">Validate that no sensitive information is being disclosed through file extensions.</td>
+</tr>
         <tr>
             <td class="sub-heading">2.5 - Enumerate Infrastructure and Application Admin Interfaces</td>
             <td></td>
         </tr>
-
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+    <td class="checklist-item">Directory and file enumeration: An administrative interface may be present but not visibly available to the tester. The path of the administrative interface may be guessed by simple requests such as /admin or /administrator.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+    <td class="checklist-item">Comments and links in source code.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+    <td class="checklist-item">Parameter tampering: A GET or POST parameter, or a cookie may be required to enable the administrator functionality. Clues to this include the presence of hidden fields such as:</td>
+</tr>
 
            <tr>
             <td class="sub-heading">2.6 - Test HTTP Methods </td>
             <td></td>
         </tr>
 
-
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+    <td class="checklist-item">Discover the supported methods by making an OPTIONS request to the server.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+    <td class="checklist-item">Test for access control bypass by attempting to use non-standard HTTP methods.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+    <td class="checklist-item">Test HTTP method overriding techniques by attempting to use a different HTTP method than the one intended.</td>
+</tr>
          <tr>
             <td class="sub-heading">2.7 - Test HTTP Strict Transport Security </td>
             <td></td>
         </tr>
-
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+    <td class="checklist-item">Confirm the presence of the HSTS header by examining the response headers of the web application.</td>
+</tr>
 
           <tr>
             <td class="sub-heading">2.8 - Test RIA Cross Domain Policy </td>
             <td></td>
         </tr>
 
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+    <td class="checklist-item">Locate the cross-domain policy file of the RIA by examining the web application's source code or by using a web application scanner.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+    <td class="checklist-item">Review the contents of the cross-domain policy file (Crossdomain.xml vs. Clientaccesspolicy.xml) and check if it restricts access to sensitive data and services.</td>
+</tr>
+        
           <tr>
             <td class="sub-heading">2.9 - Test File Permission</td>
             <td></td>
         </tr>
 
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+    <td class="checklist-item">Identify the files and directories that require file permission testing, including web files/directory, configuration files/directory, and sensitive files.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+    <td class="checklist-item">Review the file permissions of the identified files and directories and check if they are properly configured and secured.</td>
+</tr>
 
+        
           <tr>
             <td class="sub-heading">2.11 - Test Cloud Storage</td>
             <td></td>
