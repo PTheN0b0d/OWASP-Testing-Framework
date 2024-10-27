@@ -524,6 +524,567 @@
     <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
     <td class="checklist-item">The Pentester examines the HTTP response headers and confirms the presence of the "Content-Security-Policy" header.</td>
 </tr>
+
+
+        <!-- 3rd ------------------------------------  ..>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penetration Testing Checklist</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #ddd;
+        }
+        input[type="text"], input[type="date"] {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .collapsible {
+            background-color: #777;
+            color: white;
+            cursor: pointer;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        .active, .collapsible:hover {
+            background-color: #555;
+        }
+        .content {
+            padding: 0 10px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+        }
+        .sub-heading {
+            color: blue;
+        }
+        .checklist-item {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Penetration Testing Checklist</h2>
+
+<table>
+    <tr>
+        <th>Attribute</th>
+        <th>Details</th>
+    </tr>
+    <tr>
+        <td>Project Name</td>
+        <td><input type="text" value="Project Alpha" /></td>
+    </tr>
+    <tr>
+        <td>Start Date</td>
+        <td><input type="date" value="2024-10-01" /></td>
+    </tr>
+    <tr>
+        <td>End Date</td>
+        <td><input type="date" value="2024-10-10" /></td>
+    </tr>
+    <tr>
+        <td>Pentester Name</td>
+        <td><input type="text" value="Alice Smith" /></td>
+    </tr>
+    <tr>
+        <td>Ticket ID</td>
+        <td><input type="text" value="TICKET-001" /></td>
+    </tr>
+</table>
+
+<button class="collapsible">1. INFORMATION GATHERING</button>
+<div class="content">
+    <table>
+        <tr>
+            <th>Sub-Heading</th>
+            <th>
+                <input type="checkbox" id="selectAllInfo" onclick="toggleAll(this, '.info-checklist')"> Select All
+            </th>
+            <th>Checklist Item</th>
+        </tr>
+        <tr>
+            <td class="sub-heading">1.1 - Conduct Search Engine Discovery Reconnaissance for Information Leakage</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
+            <td class="checklist-item">Check relevant GHDB (https://www.exploit-db.com/google-hacking-database) queries to identify potential information leakage.</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
+            <td class="checklist-item">Utilize automation tools such as Metagoofil to search and download specific file types or other sensitive information.</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
+            <td class="checklist-item">Conduct searches using specialized search engines like Shodan to identify internet-facing devices or systems that might be vulnerable to exploitation or information leakage.</td>
+ </tr>
+        <tr>
+            <td></td>
+            <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
+            <td class="checklist-item">Perform OSINT (https://osintframework.com/)</td>
+        </tr>
+        <!-- Additional checklist items can be added here -->
+
+        <tr>
+            <td class="sub-heading">1.2 -Fingerprinting Web Server</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
+            <td class="checklist-item">Use banner grabbing to analyze response headers from the web server.</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
+            <td class="checklist-item">Analyze the HTTP response to identify server software, version, and other details unique to the HTTP response.</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
+            <td class="checklist-item">Analyze the SSL certificate to identify server software, version, and other details.</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
+            <td class="checklist-item">Use automated tools like Nmap, WhatWeb, and Wappalyzer to send requests to the web server and analyze the response. Note that permission from the owner of the web server is necessary before using these tools.</td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
+            <td class="checklist-item">Use tools like Netcat, Curl, and Wget for banner grabbing and data transfer between client and server.</td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
+            <td class="checklist-item">Send requests with invalid headers, parameters, methods, or HTTP versions to test the web server's response.</td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
+            <td class="checklist-item">Use automation tools like httprint, Wappalyzer, WhatWeb, and Nuclei templates to identify web technologies and server software.</td>
+        </tr>
+
+        <tr>
+            <td class="sub-heading">1.3 -Review Webserver Metafiles for Information Leakage</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
+            <td class="checklist-item">Use Burp Suite or ZAP to automate the process of identifying sensitive information present in webserver metafiles.</td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td class ="checklist-item"><input type="checkbox" class="info-checklist"></td>
+            <td class="checklist-item">Check META tag: Check if there is any “<META NAME=”ROBOTS” ... >” entry present in the web pages. If not, then the “Robots Exclusion Protocol” defaults to “INDEX,FOLLOW” respectively.</td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
+            <td class="checklist-item">Analyze the contents: Analyze the contents of each metafile to identify any sensitive information that may be disclosed, such as directory paths, usernames, passwords, or confidential data.</td>
+        </tr>
+
+        <tr>
+            <td class="sub-heading">1.4 -Enumerate Applications on Webserver</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
+            <td class="checklist-item">Identify the scope of your testing, including the web server IP address or domain name and the port(s) to scan.</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
+            <td class="checklist-item">Use automated scanning tools like Nmap or Nessus to scan for open ports and running services on the web server.</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
+            <td class="checklist-item">Analyze the web server homepage by reviewing the HTML and JavaScript code for any references to web applications.</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
+            <td class="checklist-item">Manually browse through directories and subdirectories on the server to identify web applications.</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
+            <td class="checklist-item">Use directory and file brute-forcing tools like DirBuster, wfuzz, gobuster, or Burp Suite to find hidden web applications.</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
+            <td class="checklist-item">Once web applications have been identified, try appending different file extensions like “.php,” “.asp,” and “.aspx” to the application URLs to see if the server can process them.</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
+            <td class="checklist-item">Use vulnerability scanners to identify any known vulnerabilities in the web server or its applications.</td>
+        </tr>
+
+        <tr>
+            <td class="sub-heading">1.5- Review Webpage Content for Information Leakage</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
+            <td class="checklist-item">Review the HTML code of the webpage to look for any metadata tags or comments.</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
+            <td class="checklist-item">Identify any potentially sensitive information that may have been leaked through the comments and metadata. This can include version numbers, system paths, internal IP addresses, and other confidential data.</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
+            <td class="checklist-item">Review the page source of the webpage to determine if any comments or metadata have been hidden from view.</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
+            <td class="checklist-item">Use automated scanning tools like Burp Suite or OWASP ZAP to identify metadata that may have been missed during a manual review.</td>
+        </tr>
+
+        <tr>
+            <td class="sub-heading">1.6 -Identify Application Entry Points</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
+            <td class="checklist-item">Conduct a thorough analysis of the application's architecture and components to identify potential entry points.</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
+            <td class="checklist-item">Review documentation and diagrams of the application's architecture to identify potential entry points.</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
+            <td class="checklist-item">Use web application scanners such as Burp Suite, OWASP ZAP, or Nikto to scan the application and identify potential entry points.</td>
+        </tr>
+    </table>
+</div>
+
+<button class="collapsible">02- Configuration and Deployment Management Testing</button>
+<div class="content">
+    <table>
+        <tr>
+            <th>Sub-Heading</th>
+            <th>
+                <input type="checkbox" id="selectAllConfig" onclick="toggleAll(this, '.config-checklist')"> Select All
+            </th>
+            <th>Checklist Item</th>
+        </tr>
+        <tr>
+            <td class="sub-heading">2.1 - Test Network Infrastructure Configuration</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+            <td class="checklist-item">Scan the all reachable port</td>
+        </tr>
+        <tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+    <td class="checklist-item">Run the security scan using some automation tool such as OpenVAS, Nessus.</td>
+</tr>
+
+
+  <tr>
+            <td class="sub-heading">2.3 - Test File Extensions Handling for Sensitive Information</td>
+            <td></td>
+        </tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+    <td class="checklist-item">Scan the application with automation tool such as Burp Suite.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+    <td class="checklist-item">Perform directory fuzzing as per application technology. Below are some wordlists:</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"></td>
+    <td class="checklist-item"><a href="https://github.com/orwagodfather/WordList/tree/main" target="_blank">https://github.com/orwagodfather/WordList/tree/main</a></td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"></td>
+    <td class="checklist-item"><a href="https://github.com/danielmiessler/SecLists" target="_blank">https://github.com/danielmiessler/SecLists</a></td>
+</tr>
+
+        <tr>
+            <td class="sub-heading">2.3 - Test File Extensions Handling for Sensitive Information</td>
+            <td></td>
+        </tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+    <td class="checklist-item">Use vulnerability scanners, spidering and mirroring tools, and querying search engines to identify files with a given extension. <b>connection.inc, .config, .asa </b></b> </td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+    <td class="checklist-item">Manually inspect the application to identify sensitive files.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+    <td class="checklist-item">Validate that no sensitive information is being disclosed through file extensions.</td>
+</tr>
+        <tr>
+            <td class="sub-heading">2.5 - Enumerate Infrastructure and Application Admin Interfaces</td>
+            <td></td>
+        </tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+    <td class="checklist-item">Directory and file enumeration: An administrative interface may be present but not visibly available to the tester. The path of the administrative interface may be guessed by simple requests such as /admin or /administrator.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+    <td class="checklist-item">Comments and links in source code.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+    <td class="checklist-item">Parameter tampering: A GET or POST parameter, or a cookie may be required to enable the administrator functionality. Clues to this include the presence of hidden fields such as:</td>
+</tr>
+
+           <tr>
+            <td class="sub-heading">2.6 - Test HTTP Methods </td>
+            <td></td>
+        </tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+    <td class="checklist-item">Discover the supported methods by making an OPTIONS request to the server.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+    <td class="checklist-item">Test for access control bypass by attempting to use non-standard HTTP methods.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+    <td class="checklist-item">Test HTTP method overriding techniques by attempting to use a different HTTP method than the one intended.</td>
+</tr>
+         <tr>
+            <td class="sub-heading">2.7 - Test HTTP Strict Transport Security </td>
+            <td></td>
+        </tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+    <td class="checklist-item">Confirm the presence of the HSTS header by examining the response headers of the web application.</td>
+</tr>
+
+          <tr>
+            <td class="sub-heading">2.8 - Test RIA Cross Domain Policy </td>
+            <td></td>
+        </tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+    <td class="checklist-item">Locate the cross-domain policy file of the RIA by examining the web application's source code or by using a web application scanner.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+    <td class="checklist-item">Review the contents of the cross-domain policy file (Crossdomain.xml vs. Clientaccesspolicy.xml) and check if it restricts access to sensitive data and services.</td>
+</tr>
+        
+          <tr>
+            <td class="sub-heading">2.9 - Test File Permission</td>
+            <td></td>
+        </tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+    <td class="checklist-item">Identify the files and directories that require file permission testing, including web files/directory, configuration files/directory, and sensitive files.</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+    <td class="checklist-item">Review the file permissions of the identified files and directories and check if they are properly configured and secured.</td>
+</tr>
+
+        
+          <tr>
+            <td class="sub-heading">2.11 - Test Cloud Storage</td>
+            <td></td>
+        </tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+    <td class="checklist-item"><strong>Access Control:</strong> Are there any publicly accessible storage buckets?</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+    <td class="checklist-item"><strong>Access Control:</strong> Are permissions set correctly for users and roles?</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+    <td class="checklist-item"><strong>Access Control:</strong> Can unauthorized users access sensitive files?</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+    <td class="checklist-item"><strong>Data Exposure:</strong> Are sensitive files exposed to the public?</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+    <td class="checklist-item"><strong>Data Exposure:</strong> Is there a mechanism to report or remove exposed data?</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+    <td class="checklist-item"><strong>Encryption:</strong> Is data encrypted at rest?</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+    <td class="checklist-item"><strong>Encryption:</strong> Is data encrypted in transit?</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+    <td class="checklist-item"><strong>Encryption:</strong> Are encryption keys managed securely?</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+    <td class="checklist-item"><strong>Authentication:</strong> Are strong passwords enforced?</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+    <td class="checklist-item"><strong>Authentication:</strong> Is multi-factor authentication implemented?</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+    <td class="checklist-item"><strong>Authentication:</strong> Are there any default credentials in use?</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+    <td class="checklist-item"><strong>Backup and Recovery:</strong> Are backups taken regularly?</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+    <td class="checklist-item"><strong>Backup and Recovery:</strong> Is there a tested recovery plan in place?</td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+    <td class="checklist-item"><strong>Backup and Recovery:</strong> Is versioning enabled for data recovery?</td>
+</tr>
+        
+             <tr>
+            <td class="sub-heading">2.12 - Test for Content Security Policy</td>
+            <td></td>
+        </tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+    <td class="checklist-item">The Pentester examines the HTTP response headers and confirms the presence of the "Content-Security-Policy" header.</td>
+</tr>
+        
+        <!-- Additional checklist items can be added here -->
+    </table>
+</div>
+
+<script>
+    // Function to Toggle All Checkboxes in the Same Section
+    function toggleAll(source, checklistClass) {
+        var checkboxes = document.querySelectorAll(checklistClass);
+        for (var i = 0; i < checkboxes.length; i++) {
+            checkboxes[i].checked = source.checked;
+        }
+    }
+
+    var coll = document.getElementsByClassName("collapsible");
+    for (var i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.maxHeight){
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
+        
         
         <!-- Additional checklist items can be added here -->
     </table>
