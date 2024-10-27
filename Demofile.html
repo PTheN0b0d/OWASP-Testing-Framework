@@ -123,7 +123,7 @@
         </tr>
         <tr>
             <td></td>
-            <td class="checklist-item"><input type="checkbox" class="check list"></td>
+            <td class="checklist-item"><input type="checkbox" class="checklist"></td>
             <td class="checklist-item">Conduct searches using specialized search engines like Shodan to identify internet-facing devices or systems that might be vulnerable to exploitation or information leakage.</td>
         </tr>
         <tr>
@@ -140,7 +140,7 @@
 <script>
     // Function to Toggle All Checkboxes
     function toggleAll(source) {
-        checkboxes = document.querySelectorAll('.checklist');
+        var checkboxes = document.querySelectorAll('.checklist');
         for (var i = 0; i < checkboxes.length; i++) {
             checkboxes[i].checked = source.checked;
         }
