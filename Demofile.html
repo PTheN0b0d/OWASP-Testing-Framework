@@ -4,6 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Penetration Testing Checklist</title>
+
+
+<!-- print page -->
+
+      <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #333; /* Default text color */
+        }
+        h1 {
+            color: blue; /* Heading color */
+        }
+        h2 {
+            color: green; /* Subheading color */
+        }
+        p {
+            color: #555; /* Paragraph color */
+        }
+        /* Print styles */
+        @media print {
+            body {
+                color: #333; /* Ensure text is printed in default color */
+            }
+            h1 {
+                color: blue; /* Ensure heading is printed in blue */
+            }
+            h2 {
+                color: green; /* Ensure subheading is printed in green */
+            }
+            p {
+                color: #555; /* Ensure paragraph is printed in gray */
+            }
+        }
+    </style>
+
+
+    <!-- print page -->
+    
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -68,6 +106,8 @@
 <body>
 
 <h2>Penetration Testing Checklist</h2>
+
+     <button onclick="printPage()">Print This Page</button>
 
 <table>
     <tr>
@@ -1340,11 +1380,9 @@
     </table>
 </div>
 
-        <input type="button" value="Print" onclick="handlePrint()" />
-
-    <script type="text/javascript">
-        function handlePrint() {
-            window.print(); // This will open the print dialog
+       <script>
+        function printPage() {
+            window.print(); // Opens the print dialog
         }
     </script>
     
