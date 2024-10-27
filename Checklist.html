@@ -1,5 +1,37 @@
 <html>
 <head>
+
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penetration Testing Checklist</title>
+    <style>
+        table {
+            width: 50%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-family: Arial, sans-serif;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #ddd;
+        }
+        input[type="text"], input[type="date"] {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+    </style>
 <style>
 table {border-collapse: collapse; width: 100%;}
 th, td {text-align: left; padding: 8px;}
@@ -11,6 +43,35 @@ th, td {text-align: left; padding: 8px;}
 </style>
 </head>
 <body>
+<h2>Penetration Testing Checklist</h2>
+    
+    <table>
+        <tr>
+            <th>Attribute</th>
+            <th>Details</th>
+        </tr>
+        <tr>
+            <td>Project Name</td>
+            <td><input type="text" value="Project Alpha" /></td>
+        </tr>
+        <tr>
+            <td>Start Date</td>
+            <td><input type="date" value="2024-10-01" /></td>
+        </tr>
+        <tr>
+            <td>End Date</td>
+            <td><input type="date" value="2024-10-10" /></td>
+        </tr>
+        <tr>
+            <td>Pentester Name</td>
+            <td><input type="text" value="Alice Smith" /></td>
+        </tr>
+        <tr>
+            <td>Ticket ID</td>
+            <td><input type="text" value="TICKET-001" /></td>
+        </tr>
+    </table>
+  
 <button class="collapsible">1. INFORMATION GATHERING</button>
 <div class="content">
 <table>
