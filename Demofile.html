@@ -513,7 +513,8 @@
     <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
     <td class="checklist-item"><strong>Backup and Recovery:</strong> Is versioning enabled for data recovery?</td>
 </tr>
-        
+
+    
              <tr>
             <td class="sub-heading">2.12 - Test for Content Security Policy</td>
             <td></td>
@@ -525,8 +526,28 @@
     <td class="checklist-item">The Pentester examines the HTTP response headers and confirms the presence of the "Content-Security-Policy" header.</td>
 </tr>
 
+ <!-- 3rd  items can be added here -->
+        
 
-      
+      <button class="collapsible">02- Configuration and Deployment Management Testing</button>
+<div class="content">
+    <table>
+        <tr>
+            <th>Sub-Heading</th>
+            <th>
+                <input type="checkbox" id="selectAllConfig" onclick="toggleAll(this, '.config-checklist')"> Select All
+            </th>
+            <th>Checklist Item</th>
+        </tr>
+        <tr>
+            <td class="sub-heading">2.1 - Test Network Infrastructure Configuration</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+            <td class="checklist-item">Scan the all reachable port</td>
+        </tr>
         
 
         <!-- Additional checklist items can be added here -->
