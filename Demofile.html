@@ -3551,6 +3551,43 @@
     <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest10-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Verify if proper error messages are shown when limits are exceeded.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest9-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Verify the algorithms used in the application (e.g., AES, RSA).</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest9-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Ensure the application does not use weak algorithms like MD5, SHA-1, or RC4.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest9-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Verify encryption key lengths are sufficiently strong (e.g., AES-128, RSA 2048).</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest9-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Ensure encryption keys are securely stored and managed.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+
 
  <td class="sub-heading">10.6 Testing for the Circumvention of Work Flows</td>
     <td></td>
@@ -3738,6 +3775,657 @@
 
     </table>
 </div>
+
+<!-- 11th module --------------------------------------------------------------- -->
+
+
+<button class="collapsible">11 - Client-side Testing</button>
+<div class="content">
+
+    <table>
+
+        <tr>
+
+            <th>Sub-Heading</th>
+
+            <th>
+
+                <input type="checkbox" id="selectAllInfo" onclick="toggleAll(this, '.ptest11-checklist')"> Select All
+
+            </th>
+
+            <th>Checklist Item</th>
+
+            <th>Justification</th>
+
+        </tr>
+
+        <tr>
+
+    <td class="sub-heading">11.1 Testing for DOM-Based Cross Site Scripting</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Identify parts of the application that process user input and manipulate the DOM (e.g., URL, form data).</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Analyze JavaScript code to locate functions like document.write, innerHTML, or eval that handle user input.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Test with different DOM XSS payloads to observe if malicious scripts execute.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Check for unsafe use of user-supplied input in DOM manipulation functions.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+
+<tr>
+
+    <td class="sub-heading">11.2 Testing for JavaScript Execution</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Identify areas where user input is processed or returned to the browser as JavaScript.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Test for script injection using common payloads like &lt;script&gt;alert(1)&lt;/script&gt; or javascript:alert(1).</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Analyze the JavaScript codebase for unsafe practices like eval(), innerHTML, or document.write() that handle user input.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Check for the proper encoding of dynamic content that may be injected into the DOM.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+
+    <td class="sub-heading">11.3 Testing for HTML Injection</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Identify user input fields (e.g., forms, search boxes, comments) that are reflected back on the page.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Inject simple HTML tags like &lt;h1&gt;, &lt;p&gt;, &lt;img&gt;, or &lt;form&gt; into these fields to see if they are executed.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Check if injected HTML is rendered unencoded or unsanitized in the browser.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+
+<tr>
+
+    <td class="sub-heading">11.4 Testing for Client-side URL Redirect</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Identify client-side redirection mechanisms in the application (e.g., JavaScript window.location or URL parameters).</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Check if URL redirection parameters can be manipulated to control the redirection target.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Test if redirection occurs to untrusted or attacker-controlled websites.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+
+    <td class="sub-heading">11.5 Testing for CSS Injection</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Identify input fields or URL parameters that reflect user input in CSS.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Attempt to inject CSS code into user inputs or parameters and observe page behavior.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+
+    <td class="sub-heading">11.6 Testing for Client-side Resource Manipulation</td>
+    <td></td>
+</tr>
+
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Identify client-side resources (JavaScript, CSS, images, etc.) that are served to the browser.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Test the modification of these resources directly in the browser to see if application behavior changes.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+
+    <td class="sub-heading">11.7 Testing Cross Origin Resource Sharing</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Check the Access-Control-Allow-Origin header for proper configuration.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Ensure that the application does not use a wildcard (*) in Access-Control-Allow-Origin for sensitive resources.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Test if the server allows requests from untrusted domains by modifying the Origin header.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Verify that sensitive data is not exposed in cross-origin requests.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Inspect if preflight requests (OPTIONS) are handled correctly for sensitive actions.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Review if Access-Control-Allow-Credentials is set appropriately to avoid exposing credentials in cross-origin requests.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Ensure that only required HTTP methods and headers are allowed in Access-Control-Allow-Methods and Access-Control-Allow-Headers.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+
+<tr>
+
+    <td class="sub-heading">11.8 Testing for Cross Site Flashing</td>
+    <td></td>
+</tr>
+
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Identify and locate Flash content on the application.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Decompile Flash files (SWF) to inspect ActionScript code for vulnerabilities.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Test if the Flash object allows unauthorized cross-domain interactions.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Verify the contents of the crossdomain.xml file to ensure proper domain restrictions.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+
+    <td class="sub-heading">11.9 Testing for Clickjacking</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Inspect HTTP headers for X-Frame-Options or Content-Security-Policy.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Manually create a page with an iframe pointing to the target URL to test for clickjacking vulnerability.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+
+    <td class="sub-heading">11.10 Testing WebSockets</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Verify that WebSocket connections are secured with wss://.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Inspect WebSocket handshake for proper authentication and authorization.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Test if WebSocket messages are properly validated to prevent injection attacks.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Check if sensitive data is transmitted through unencrypted WebSocket channels.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Test for cross-site WebSocket hijacking vulnerabilities.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Ensure proper role-based access control for WebSocket communication.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+
+    <td class="sub-heading">11.11 Testing Web Messaging</td>
+    <td></td>
+</tr>
+
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Identify the use of postMessage(), addEventListener, or other web messaging mechanisms.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Verify that the origin of incoming messages is properly validated using event.origin.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Test for message content validation and sanitization.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Check for any transmission of sensitive data over web messaging.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Attempt cross-origin attacks by sending messages from untrusted origins to the target application.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Ensure that no unauthorized actions can be triggered via web messaging.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+
+    <td class="sub-heading">11.12 Testing Browser Storage</td>
+    <td></td>
+</tr>
+
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Identify if the application uses LocalStorage, SessionStorage, or IndexedDB.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Verify that no sensitive information (passwords, tokens, personal data) is stored in plaintext.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Attempt to manipulate the stored data and check the impact on the application.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Ensure SessionStorage is used properly for session-only data.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Check if any security mechanisms like encryption or tokenization are in place for stored data.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+
+    <td class="sub-heading">11.13 Testing for Cross Site Script Inclusion</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Identify all JavaScript files loaded from external domains.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Check for the ability to include external scripts from untrusted sources.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Test for execution of external scripts that exfiltrate sensitive information like cookies or session tokens.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Verify if Content Security Policy (CSP) headers are configured to restrict script sources.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Test dynamic script injection via DOM manipulation.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Ensure no sensitive data is exposed through included scripts.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+
+<tr>
+
+    <td class="sub-heading">11.14 Testing for Reverse Tabnabbing</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Identify links that open in new tabs or windows using target="_blank".</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Check if rel="noopener" or rel="noreferrer" attributes are missing on those links.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Test if the parent window (original tab) can be controlled using window.opener.location.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest11-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Ensure that sensitive actions (like login or payments) are not exposed to reverse tabnabbing vulnerabilities.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+    </table>
+</div>
+
+
+<!--       12th module --------------------------------- -->
+
+<button class="collapsible">12- API Testing</button>
+<div class="content">
+
+    <table>
+
+        <tr>
+
+            <th>Sub-Heading</th>
+
+            <th>
+
+                <input type="checkbox" id="selectAllInfo" onclick="toggleAll(this, '.ptest12-checklist')"> Select All
+
+            </th>
+
+            <th>Checklist Item</th>
+
+            <th>Justification</th>
+
+        </tr>
+
+        <tr>
+
+    <td class="sub-heading">12.1 API Reconnaissance</td>
+    <td></td>
+</tr>
+
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest12-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Review API documentation and check for discrepancies or missing information.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest12-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Intercept network traffic to identify API calls made by the frontend or mobile apps.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest12-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Explore endpoints manually by sending requests to different methods (GET, POST, etc.).</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest12-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Test error handling by sending invalid requests and observe the error messages.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest12-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Use automation tools to crawl APIs and gather all available information.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest12-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Identify any sensitive information that may be exposed in API responses, such as stack traces or database queries.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+   <tr>
+
+    <td class="sub-heading">12.2 Testing GraphQL</td>
+    <td></td>
+</tr>
+
+    <tr>
+        <td></td>
+        <td class="checklist-item"><input type="checkbox" class="ptest12-checklist" onchange="toggleJustification(this)"></td>
+        <td class="checklist-item">Review API documentation and check for discrepancies or missing information.</td>
+        <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+    </tr>
+
+    <tr>
+        <td></td>
+        <td class="checklist-item"><input type="checkbox" class="ptest12-checklist" onchange="toggleJustification(this)"></td>
+        <td class="checklist-item">Intercept network traffic to identify API calls made by the frontend or mobile apps.</td>
+        <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+    </tr>
+
+    <tr>
+        <td></td>
+        <td class="checklist-item"><input type="checkbox" class="ptest12-checklist" onchange="toggleJustification(this)"></td>
+        <td class="checklist-item">Explore endpoints manually by sending requests to different methods (GET, POST, etc.).</td>
+        <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+    </tr>
+
+    <tr>
+        <td></td>
+        <td class="checklist-item"><input type="checkbox" class="ptest12-checklist" onchange="toggleJustification(this)"></td>
+        <td class="checklist-item">Test error handling by sending invalid requests and observe the error messages.</td>
+        <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+    </tr>
+
+    <tr>
+        <td></td>
+        <td class="checklist-item"><input type="checkbox" class="ptest12-checklist" onchange="toggleJustification(this)"></td>
+        <td class="checklist-item">Use automation tools to crawl APIs and gather all available information.</td>
+        <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+    </tr>
+
+    <tr>
+        <td></td>
+        <td class="checklist-item"><input type="checkbox" class="ptest12-checklist" onchange="toggleJustification(this)"></td>
+        <td class="checklist-item">Identify any sensitive information that may be exposed in API responses, such as stack traces or database queries.</td>
+        <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+    </tr>
+</table>
+     
+    </table>
+</div>
+
 
 
 <script>
