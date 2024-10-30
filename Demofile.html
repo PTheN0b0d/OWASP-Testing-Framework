@@ -154,11 +154,15 @@
             <td></td>
             <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
             <td class="checklist-item">Check relevant GHDB (https://www.exploit-db.com/google-hacking-database) queries to identify potential information leakage.</td>
+       <td><input type="text" class="justification" placeholder="Justification if not covered" style="display:none;"></td> <!-- Justification field -->
+        
         </tr>
         <tr>
             <td></td>
             <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
             <td class="checklist-item">Utilize automation tools such as Metagoofil to search and download specific file types or other sensitive information.</td>
+       <td><input type="text" class="justification" placeholder="Justification if not covered" style="display:none;"></td> <!-- Justification field -->
+        
         </tr>
         <tr>
             <td></td>
@@ -1408,8 +1412,20 @@
         });
     }
 </script>
+<script>
 
- 
+
+    function toggleJustification(checkbox) {
+    const justificationInput = checkbox.closest('tr').querySelector('.justification');
+    if (checkbox.checked) {
+        justificationInput.style.display = "none"; // Hide justification field if checked
+        justificationInput.value = ""; // Clear the justification input when checked
+    } else {
+        justificationInput.style.display = "block"; // Show justification field if unchecked
+    }
+}
+</script>
+
 
 </body>
 </html>
