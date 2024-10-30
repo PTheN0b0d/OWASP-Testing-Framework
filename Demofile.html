@@ -7,101 +7,120 @@
 
 
 <!-- print page -->
+<style>
+    /* General Styles */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 20px;
+        color: #333; /* Default text color */
+    }
 
-      <style>
+    h1 {
+        color: blue; /* Heading color */
+    }
+
+    h2 {
+        color: green; /* Subheading color */
+    }
+
+    p {
+        color: #555; /* Paragraph color */
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        background-color: #ddd;
+    }
+
+    input[type="text"], input[type="date"] {
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+    }
+
+    /* Collapsible Styles */
+    .collapsible {
+        background-color: #777;
+        color: white;
+        cursor: pointer;
+        padding: 10px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 16px;
+        margin-top: 10px;
+    }
+
+    .active, .collapsible:hover {
+        background-color: #555;
+    }
+
+    .content {
+        padding: 0 10px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+    }
+
+    .justification {
+        display: none; /* Initially hide justification fields */
+    }
+
+    .sub-heading {
+        color: blue;
+    }
+
+    .checklist-item {
+        margin-left: 20px;
+    }
+
+    /* Print Styles */
+    @media print {
         body {
-            font-family: Arial, sans-serif;
-            color: #333; /* Default text color */
+            color: #333; /* Ensure text is printed in default color */
         }
+
         h1 {
-            color: blue; /* Heading color */
+            color: blue; /* Ensure heading is printed in blue */
         }
+
         h2 {
-            color: green; /* Subheading color */
+            color: green; /* Ensure subheading is printed in green */
         }
+
         p {
-            color: #555; /* Paragraph color */
+            color: #555; /* Ensure paragraph is printed in gray */
         }
-        /* Print styles */
-        @media print {
-            body {
-                color: #333; /* Ensure text is printed in default color */
-            }
-            h1 {
-                color: blue; /* Ensure heading is printed in blue */
-            }
-            h2 {
-                color: green; /* Ensure subheading is printed in green */
-            }
-            p {
-                color: #555; /* Ensure paragraph is printed in gray */
-            }
-        }
-    </style>
 
-
-    <!-- print page -->
-    
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 20px;
+        /* Optionally hide collapsible content in print */
+        .collapsible, .content {
+            display: none;
         }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        th, td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-        th {
-            background-color: #4CAF50;
-            color: white;
-        }
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-        tr:hover {
-            background-color: #ddd;
-        }
-        input[type="text"], input[type="date"] {
-            width: 100%;
-            padding: 8px;
-            box-sizing: border-box;
-        }
-        .collapsible {
-            background-color: #777;
-            color: white;
-            cursor: pointer;
-            padding: 10px;
-            width: 100%;
-            border: none;
-            text-align: left;
-            outline: none;
-            font-size: 16px;
-            margin-top: 10px;
-        }
-        .active, .collapsible:hover {
-            background-color: #555;
-        }
-        .content {
-            padding: 0 10px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.2s ease-out;
-        }
-        .sub-heading {
-            color: blue;
-        }
-        .checklist-item {
-            margin-left: 20px;
-        }
-    </style>
+    }
+</style>
 </head>
 <body>
 
@@ -137,42 +156,75 @@
 </table>
 
 <button class="collapsible">01. INFORMATION GATHERING</button>
+
 <div class="content">
+
     <table>
+
         <tr>
+
             <th>Sub-Heading</th>
+
             <th>
+
                 <input type="checkbox" id="selectAllInfo" onclick="toggleAll(this, '.info-checklist')"> Select All
+
             </th>
+
             <th>Checklist Item</th>
+
+            <th>Justification</th>
+
         </tr>
+
         <tr>
+
             <td class="sub-heading">1.1 - Conduct Search Engine Discovery Reconnaissance for Information Leakage</td>
+
             <td></td>
+
         </tr>
+
         <tr>
+
             <td></td>
-            <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
+
+            <td class="checklist-item"><input type="checkbox" class="info-checklist" onchange="toggleJustification(this)"></td>
+
             <td class="checklist-item">Check relevant GHDB (https://www.exploit-db.com/google-hacking-database) queries to identify potential information leakage.</td>
-       <td><input type="text" class="justification" placeholder="Justification if not covered" style="display:none;"></td> <!-- Justification field -->
-        
+
+      <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+
         </tr>
+
         <tr>
+
             <td></td>
-            <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
+
+            <td class="checklist-item"><input type="checkbox" class="info-checklist" onchange="toggleJustification(this)"></td>
+
             <td class="checklist-item">Utilize automation tools such as Metagoofil to search and download specific file types or other sensitive information.</td>
-       <td><input type="text" class="justification" placeholder="Justification if not covered" style="display:none;"></td> <!-- Justification field -->
-        
+
+          <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+
         </tr>
         <tr>
             <td></td>
-            <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
-            <td class="checklist-item">Conduct searches using specialized search engines like Shodan to identify internet-facing devices or systems that might be vulnerable to exploitation or information leakage.</td>
- </tr>
+            <td class="checklist-item"><input type="checkbox" class="info-checklist" onchange="toggleJustification(this)"></td>
+            <td class="checklist-item">Utilize automation tools such as Metagoofil to search and download specific file types or other sensitive information.</td>
+           <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+        </tr>
         <tr>
             <td></td>
-            <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
+            <td class="checklist-item"><input type="checkbox" class="info-checklist" onchange="toggleJustification(this)"></td>
+            <td class="checklist-item">Conduct searches using specialized search engines like Shodan to identify internet-facing devices or systems that might be vulnerable to exploitation or information leakage.</td>
+ <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="checklist-item"><input type="checkbox" class="info-checklist" onchange="toggleJustification(this)"></td>
             <td class="checklist-item">Perform OSINT (https://osintframework.com/)</td>
+                 <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
         </tr>
         <!-- Additional checklist items can be added here -->
 
@@ -182,41 +234,48 @@
         </tr>
         <tr>
             <td></td>
-            <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
+            <td class="checklist-item"><input type="checkbox" class="info-checklist" onchange="toggleJustification(this)"></td>
             <td class="checklist-item">Use banner grabbing to analyze response headers from the web server.</td>
+			 <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
         </tr>
         <tr>
             <td></td>
-            <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
+            <td class="checklist-item"><input type="checkbox" class="info-checklist" onchange="toggleJustification(this)"></td>
             <td class="checklist-item">Analyze the HTTP response to identify server software, version, and other details unique to the HTTP response.</td>
-        </tr>
+ <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>       
+	   </tr>
         <tr>
             <td></td>
-            <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
+            <td class="checklist-item"><input type="checkbox" class="info-checklist" onchange="toggleJustification(this)"></td>
             <td class="checklist-item">Analyze the SSL certificate to identify server software, version, and other details.</td>
+			     <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
         </tr>
         <tr>
             <td></td>
-            <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
+            <td class="checklist-item"><input type="checkbox" class="info-checklist" onchange="toggleJustification(this)"></td>
             <td class="checklist-item">Use automated tools like Nmap, WhatWeb, and Wappalyzer to send requests to the web server and analyze the response. Note that permission from the owner of the web server is necessary before using these tools.</td>
+			     <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
         </tr>
 
         <tr>
             <td></td>
-            <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
+            <td class="checklist-item"><input type="checkbox" class="info-checklist" onchange="toggleJustification(this)"></td>
             <td class="checklist-item">Use tools like Netcat, Curl, and Wget for banner grabbing and data transfer between client and server.</td>
+			     <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
         </tr>
 
         <tr>
             <td></td>
-            <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
+            <td class="checklist-item"><input type="checkbox" class="info-checklist" onchange="toggleJustification(this)"></td>
             <td class="checklist-item">Send requests with invalid headers, parameters, methods, or HTTP versions to test the web server's response.</td>
+			     <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
         </tr>
 
         <tr>
             <td></td>
-            <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
+            <td class="checklist-item"><input type="checkbox" class="info-checklist" onchange="toggleJustification(this)"></td>
             <td class="checklist-item">Use automation tools like httprint, Wappalyzer, WhatWeb, and Nuclei templates to identify web technologies and server software.</td>
+			     <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
         </tr>
 
         <tr>
@@ -225,20 +284,23 @@
         </tr>
         <tr>
             <td></td>
-            <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
+            <td class="checklist-item"><input type="checkbox" class="info-checklist" onchange="toggleJustification(this)"></td>
             <td class="checklist-item">Use Burp Suite or ZAP to automate the process of identifying sensitive information present in webserver metafiles.</td>
+			     <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
         </tr>
 
         <tr>
             <td></td>
             <td class ="checklist-item"><input type="checkbox" class="info-checklist"></td>
             <td class="checklist-item">Check META tag: Check if there is any “<META NAME=”ROBOTS” ... >” entry present in the web pages. If not, then the “Robots Exclusion Protocol” defaults to “INDEX,FOLLOW” respectively.</td>
+			     <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
         </tr>
 
         <tr>
             <td></td>
-            <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
+            <td class="checklist-item"><input type="checkbox" class="info-checklist" onchange="toggleJustification(this)"></td>
             <td class="checklist-item">Analyze the contents: Analyze the contents of each metafile to identify any sensitive information that may be disclosed, such as directory paths, usernames, passwords, or confidential data.</td>
+			     <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
         </tr>
 
         <tr>
@@ -247,38 +309,45 @@
         </tr>
         <tr>
             <td></td>
-            <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
+            <td class="checklist-item"><input type="checkbox" class="info-checklist" onchange="toggleJustification(this)"></td>
             <td class="checklist-item">Identify the scope of your testing, including the web server IP address or domain name and the port(s) to scan.</td>
+			     <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
         </tr>
         <tr>
             <td></td>
-            <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
+            <td class="checklist-item"><input type="checkbox" class="info-checklist" onchange="toggleJustification(this)"></td>
             <td class="checklist-item">Use automated scanning tools like Nmap or Nessus to scan for open ports and running services on the web server.</td>
+			     <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
         </tr>
         <tr>
             <td></td>
-            <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
+            <td class="checklist-item"><input type="checkbox" class="info-checklist" onchange="toggleJustification(this)"></td>
             <td class="checklist-item">Analyze the web server homepage by reviewing the HTML and JavaScript code for any references to web applications.</td>
+			     <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
         </tr>
         <tr>
             <td></td>
-            <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
+            <td class="checklist-item"><input type="checkbox" class="info-checklist" onchange="toggleJustification(this)"></td>
             <td class="checklist-item">Manually browse through directories and subdirectories on the server to identify web applications.</td>
+			     <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
         </tr>
         <tr>
             <td></td>
-            <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
+            <td class="checklist-item"><input type="checkbox" class="info-checklist" onchange="toggleJustification(this)"></td>
             <td class="checklist-item">Use directory and file brute-forcing tools like DirBuster, wfuzz, gobuster, or Burp Suite to find hidden web applications.</td>
+			     <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
         </tr>
         <tr>
             <td></td>
-            <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
+            <td class="checklist-item"><input type="checkbox" class="info-checklist" onchange="toggleJustification(this)"></td>
             <td class="checklist-item">Once web applications have been identified, try appending different file extensions like “.php,” “.asp,” and “.aspx” to the application URLs to see if the server can process them.</td>
+			     <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
         </tr>
         <tr>
             <td></td>
-            <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
+            <td class="checklist-item"><input type="checkbox" class="info-checklist" onchange="toggleJustification(this)"></td>
             <td class="checklist-item">Use vulnerability scanners to identify any known vulnerabilities in the web server or its applications.</td>
+			     <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
         </tr>
 
         <tr>
@@ -287,23 +356,27 @@
         </tr>
         <tr>
             <td></td>
-            <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
+            <td class="checklist-item"><input type="checkbox" class="info-checklist" onchange="toggleJustification(this)"></td>
             <td class="checklist-item">Review the HTML code of the webpage to look for any metadata tags or comments.</td>
+			     <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
         </tr>
         <tr>
             <td></td>
-            <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
+            <td class="checklist-item"><input type="checkbox" class="info-checklist" onchange="toggleJustification(this)"></td>
             <td class="checklist-item">Identify any potentially sensitive information that may have been leaked through the comments and metadata. This can include version numbers, system paths, internal IP addresses, and other confidential data.</td>
-        </tr>
+             <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+		</tr>
         <tr>
             <td></td>
-            <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
+            <td class="checklist-item"><input type="checkbox" class="info-checklist" onchange="toggleJustification(this)"></td>
             <td class="checklist-item">Review the page source of the webpage to determine if any comments or metadata have been hidden from view.</td>
+			     <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
         </tr>
         <tr>
             <td></td>
-            <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
+            <td class="checklist-item"><input type="checkbox" class="info-checklist" onchange="toggleJustification(this)"></td>
             <td class="checklist-item">Use automated scanning tools like Burp Suite or OWASP ZAP to identify metadata that may have been missed during a manual review.</td>
+     <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
         </tr>
 
         <tr>
@@ -312,19 +385,22 @@
         </tr>
         <tr>
             <td></td>
-            <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
+            <td class="checklist-item"><input type="checkbox" class="info-checklist" onchange="toggleJustification(this)"></td>
             <td class="checklist-item">Conduct a thorough analysis of the application's architecture and components to identify potential entry points.</td>
-        </tr>
+             <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+		</tr>
         <tr>
             <td></td>
-            <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
+            <td class="checklist-item"><input type="checkbox" class="info-checklist" onchange="toggleJustification(this)"></td>
             <td class="checklist-item">Review documentation and diagrams of the application's architecture to identify potential entry points.</td>
-        </tr>
+             <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+		</tr>
         <tr>
             <td></td>
-            <td class="checklist-item"><input type="checkbox" class="info-checklist"></td>
+            <td class="checklist-item"><input type="checkbox" class="info-checklist" onchange="toggleJustification(this)"></td>
             <td class="checklist-item">Use web application scanners such as Burp Suite, OWASP ZAP, or Nikto to scan the application and identify potential entry points.</td>
-        </tr>
+     <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>     
+	 </tr>
     </table>
 </div>
 
@@ -334,9 +410,10 @@
         <tr>
             <th>Sub-Heading</th>
             <th>
-                <input type="checkbox" id="selectAllConfig" onclick="toggleAll(this, '.config-checklist')"> Select All
+                <input type="checkbox" id="selectAllInfo" onclick="toggleAll(this, '.config-checklist')"> Select All
             </th>
             <th>Checklist Item</th>
+            <th>Justification</th>
         </tr>
         <tr>
             <td class="sub-heading">2.1 - Test Network Infrastructure Configuration</td>
@@ -344,13 +421,15 @@
         </tr>
         <tr>
             <td></td>
-            <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+            <td class="checklist-item"><input type="checkbox" class="config-checklist" onchange="toggleJustification(this)"></td>
             <td class="checklist-item">Scan the all reachable port</td>
+			   <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
         </tr>
         <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+       <td class="checklist-item"><input type="checkbox" class="config-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Run the security scan using some automation tool such as OpenVAS, Nessus.</td>
+	   <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 
 
@@ -360,23 +439,27 @@
         </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+       <td class="checklist-item"><input type="checkbox" class="config-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Scan the application with automation tool such as Burp Suite.</td>
+	   <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+       <td class="checklist-item"><input type="checkbox" class="config-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Perform directory fuzzing as per application technology. Below are some wordlists:</td>
+	   <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
     <td class="checklist-item"></td>
     <td class="checklist-item"><a href="https://github.com/orwagodfather/WordList/tree/main" target="_blank">https://github.com/orwagodfather/WordList/tree/main</a></td>
+   <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
     <td class="checklist-item"></td>
     <td class="checklist-item"><a href="https://github.com/danielmiessler/SecLists" target="_blank">https://github.com/danielmiessler/SecLists</a></td>
+   <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td> 
 </tr>
 
         <tr>
@@ -386,18 +469,21 @@
 
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+       <td class="checklist-item"><input type="checkbox" class="config-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Use vulnerability scanners, spidering and mirroring tools, and querying search engines to identify files with a given extension. <b>connection.inc, .config, .asa </b></b> </td>
+  <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+       <td class="checklist-item"><input type="checkbox" class="config-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Manually inspect the application to identify sensitive files.</td>
+	  <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+       <td class="checklist-item"><input type="checkbox" class="config-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Validate that no sensitive information is being disclosed through file extensions.</td>
+	  <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
         <tr>
             <td class="sub-heading">2.5 - Enumerate Infrastructure and Application Admin Interfaces</td>
@@ -405,18 +491,21 @@
         </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+       <td class="checklist-item"><input type="checkbox" class="config-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Directory and file enumeration: An administrative interface may be present but not visibly available to the tester. The path of the administrative interface may be guessed by simple requests such as /admin or /administrator.</td>
+  <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+       <td class="checklist-item"><input type="checkbox" class="config-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Comments and links in source code.</td>
+	  <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+       <td class="checklist-item"><input type="checkbox" class="config-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Parameter tampering: A GET or POST parameter, or a cookie may be required to enable the administrator functionality. Clues to this include the presence of hidden fields such as:</td>
+  <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 
            <tr>
@@ -426,18 +515,21 @@
 
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+       <td class="checklist-item"><input type="checkbox" class="config-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Discover the supported methods by making an OPTIONS request to the server.</td>
+	  <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+       <td class="checklist-item"><input type="checkbox" class="config-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Test for access control bypass by attempting to use non-standard HTTP methods.</td>
+	  <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+       <td class="checklist-item"><input type="checkbox" class="config-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Test HTTP method overriding techniques by attempting to use a different HTTP method than the one intended.</td>
+	  <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
          <tr>
             <td class="sub-heading">2.7 - Test HTTP Strict Transport Security </td>
@@ -445,8 +537,9 @@
         </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+       <td class="checklist-item"><input type="checkbox" class="config-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Confirm the presence of the HSTS header by examining the response headers of the web application.</td>
+	  <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 
           <tr>
@@ -456,13 +549,15 @@
 
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+       <td class="checklist-item"><input type="checkbox" class="config-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Locate the cross-domain policy file of the RIA by examining the web application's source code or by using a web application scanner.</td>
+	  <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+       <td class="checklist-item"><input type="checkbox" class="config-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Review the contents of the cross-domain policy file (Crossdomain.xml vs. Clientaccesspolicy.xml) and check if it restricts access to sensitive data and services.</td>
+	  <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
         
           <tr>
@@ -472,13 +567,15 @@
 
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+       <td class="checklist-item"><input type="checkbox" class="config-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Identify the files and directories that require file permission testing, including web files/directory, configuration files/directory, and sensitive files.</td>
+  <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+       <td class="checklist-item"><input type="checkbox" class="config-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Review the file permissions of the identified files and directories and check if they are properly configured and secured.</td>
+  <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 
         
@@ -489,73 +586,87 @@
 
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+       <td class="checklist-item"><input type="checkbox" class="config-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Access Control:</strong> Are there any publicly accessible storage buckets?</td>
+	  <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+       <td class="checklist-item"><input type="checkbox" class="config-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Access Control:</strong> Are permissions set correctly for users and roles?</td>
+	  <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+       <td class="checklist-item"><input type="checkbox" class="config-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Access Control:</strong> Can unauthorized users access sensitive files?</td>
+	  <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+       <td class="checklist-item"><input type="checkbox" class="config-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Data Exposure:</strong> Are sensitive files exposed to the public?</td>
+	  <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+       <td class="checklist-item"><input type="checkbox" class="config-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Data Exposure:</strong> Is there a mechanism to report or remove exposed data?</td>
+	  <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+       <td class="checklist-item"><input type="checkbox" class="config-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Encryption:</strong> Is data encrypted at rest?</td>
+	  <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+       <td class="checklist-item"><input type="checkbox" class="config-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Encryption:</strong> Is data encrypted in transit?</td>
+	  <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+       <td class="checklist-item"><input type="checkbox" class="config-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Encryption:</strong> Are encryption keys managed securely?</td>
+	  <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+       <td class="checklist-item"><input type="checkbox" class="config-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Authentication:</strong> Are strong passwords enforced?</td>
+	  <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+       <td class="checklist-item"><input type="checkbox" class="config-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Authentication:</strong> Is multi-factor authentication implemented?</td>
+	  <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+       <td class="checklist-item"><input type="checkbox" class="config-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Authentication:</strong> Are there any default credentials in use?</td>
+	  <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+       <td class="checklist-item"><input type="checkbox" class="config-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Backup and Recovery:</strong> Are backups taken regularly?</td>
+	  <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+       <td class="checklist-item"><input type="checkbox" class="config-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Backup and Recovery:</strong> Is there a tested recovery plan in place?</td>
+	  <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+       <td class="checklist-item"><input type="checkbox" class="config-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Backup and Recovery:</strong> Is versioning enabled for data recovery?</td>
+	  <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 
     
@@ -566,8 +677,9 @@
 
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="config-checklist"></td>
+       <td class="checklist-item"><input type="checkbox" class="config-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">The Pentester examines the HTTP response headers and confirms the presence of the "Content-Security-Policy" header.</td>
+	  <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 
  <!-- 3rd  items can be added here -->
@@ -583,9 +695,10 @@
         <tr>
             <th>Sub-Heading</th>
             <th>
-                <input type="checkbox" id="ptest" onclick="toggleAll(this, '.ptest-checklist')"> Select All
+               <input type="checkbox" id="ptest" onclick="toggleAll(this, '.ptest-checklist')"> Select All
             </th>
             <th>Checklist Item</th>
+            <th>Justification</th>
         </tr>
         <tr>
             <td class="sub-heading">3.1 Test Role Definitionsn</td>
@@ -593,58 +706,69 @@
         </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Role Definitions:</strong> Are roles defined with appropriate permissions?</td>
+	 <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+     <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Role Definitions:</strong> Is there a clear distinction between roles?</td>
+	 <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+     <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Role Definitions:</strong> Are roles documented and easily understandable?</td>
+	 <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+      <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Role Assignment:</strong> Are users assigned to roles based on their job functions?</td>
+	 <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+      <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Role Assignment:</strong> Are there any users with excessive permissions?</td>
+	 <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+      <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Access Control:</strong> Do users have access only to resources they are authorized to use?</td>
+	 <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+      <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Access Control:</strong> Can users perform actions that their role should not allow?</td>
+	 <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+      <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Privilege Escalation:</strong> Can users modify their own roles or the roles of others?</td>
+	 <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+      <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Privilege Escalation:</strong> Are there any vulnerabilities that allow privilege escalation?</td>
+	 <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+      <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Role Management:</strong> Is there an audit trail for role changes?</td>
+	 <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+      <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Role Management:</strong> Is there a process for reviewing and updating role definitions?</td>
+	 <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 
 <tr>
@@ -655,98 +779,118 @@
 
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+      <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Input Validation:</strong> Are user inputs properly validated and sanitized?</td>
+	 <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+      <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Input Validation:</strong> Do error messages reveal sensitive information?</td>
+	 <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+      <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Account Enumeration:</strong> Can valid and invalid usernames or emails be distinguished through error messages?</td>
+ <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+      <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Password Policy:</strong> Are strong password requirements enforced?</td>
+	 <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+      <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Password Policy:</strong> Are common passwords disallowed?</td>
+	 <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+      <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>CAPTCHA:</strong> Is CAPTCHA implemented to prevent automated registrations?</td>
+	 <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+      <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
+	  
     <td class="checklist-item"><strong>CAPTCHA:</strong> Can CAPTCHA be bypassed?</td>
+	 <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+      <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Email Verification:</strong> Is an email verification process in place?</td>
+	 <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+      <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Email Verification:</strong> Can users access the application without verifying their email?</td>
+	 <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+      <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Security Questions:</strong> Are security questions effective against social engineering attacks?</td>
+	 <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+      <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Security Questions:</strong> Are there common answers that could be easily guessed?</td>
+	 <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+      <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Identity Requirements:</strong> Can anyone register for access?</td>
+	 <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+      <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Identity Requirements:</strong> Are registrations vetted by a human prior to provisioning, or are they automatically granted if the criteria are met?</td>
+ <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+      <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Identity Requirements:</strong> Can the same person or identity register multiple times?</td>
+	 <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+      <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Identity Requirements:</strong> Can users register for different roles or permissions?</td>
+	 <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+      <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Identity Requirements:</strong> What proof of identity is required for a registration to be successful?</td>
+ <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+      <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Identity Requirements:</strong> Are registered identities verified?</td>
+	 <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+      <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Registration Process:</strong> Can identity information be easily forged or faked?</td>
+	 <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+      <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Registration Process:</strong> Can the exchange of identity information be manipulated during registration?</td>
+ <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 
 
@@ -759,53 +903,63 @@
 
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+      <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Role Assignments:</strong> Are roles assigned based on the principle of least privilege?</td>
+	 <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+      <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Role Assignments:</strong> Can users be assigned roles they should not have?</td>
+	 <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+      <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Access Controls:</strong> Are there proper access controls to prevent unauthorized account creation?</td>
+	 <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+      <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Access Controls:</strong> Can users modify or delete accounts they do not own?</td>
+	 <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+      <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Account Deactivation:</strong> Is there a secure process for deactivating accounts?</td>
+	 <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+      <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Account Deactivation:</strong> Are deactivated accounts truly inaccessible?</td>
+	 <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+      <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Automation:</strong> Are automated provisioning processes secure?</td>
+	 <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+      <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Automation:</strong> Are there any hard-coded credentials or security flaws in the automation scripts?</td>
+	 <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+      <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Audit Trails:</strong> Are account provisioning activities logged?</td>
+	 <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+      <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Audit Trails:</strong> Is sensitive information masked in the logs?</td>
+	 <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
         
 <tr>
@@ -815,33 +969,39 @@
 
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+      <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Account Enumeration:</strong> Can the application reveal valid or invalid user accounts?</td>
+	 <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+      <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Account Enumeration:</strong> Are error messages consistent and not informative?</td>
+	 <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+      <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Guessable User Accounts:</strong> Can user accounts be easily guessed or predicted?</td>
+	 <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+      <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Guessable User Accounts:</strong> Are there any measures in place to prevent guessable user accounts?</td>
+	 <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+      <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Password Recovery:</strong> Is the password recovery process secure and does not expose user accounts?</td>
+	 <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+      <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Password Recovery:</strong> Are there any limitations on the number of password recovery attempts?</td>
+	 <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
         
 <tr>
@@ -850,53 +1010,63 @@
 </tr>
         <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+      <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Username Format:</strong> Does the application enforce a specific format for usernames?</td>
+	 <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+      <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Username Format:</strong> Are special characters or spaces allowed in usernames?</td>
+	 <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+      <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Username Length:</strong> Is there a minimum length requirement for usernames?</td>
+	 <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+      <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Username Length:</strong> Is there a maximum length limit for usernames?</td>
+	 <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+      <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Uniqueness:</strong> Does the application prevent duplicate usernames?</td>
+	 <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+      <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Uniqueness:</strong> Are users notified if a username is already taken?</td>
+	 <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+      <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Predictability:</strong> Can common or easily guessable usernames be registered?</td>
+	 <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+      <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Predictability:</strong> Are there any restrictions on using common usernames (e.g., "admin", "test")?</td>
+	 <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+      <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Error Messages:</strong> Are error messages informative without revealing sensitive information?</td>
+	 <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest-checklist"></td>
+      <td class="checklist-item"><input type="checkbox" class="ptest-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Error Messages:</strong> Do error messages provide hints about valid username formats or existing usernames?</td>
+ <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>  
 </tr>
  
     </table>
@@ -907,25 +1077,38 @@
 
 
     <button class="collapsible">04- Authentication Testing</button>
-<div class="content">
+	
+	
+	<div class="content">
+
     <table>
+
         <tr>
+
             <th>Sub-Heading</th>
+
             <th>
-                <input type="checkbox" id="ptest4" onclick="toggleAll(this, '.ptest4-checklist')"> Select All
+
+                <input type="checkbox" id="selectAllInfo" onclick="toggleAll(this, '.ptest4-checklist')"> Select All
+
             </th>
+
             <th>Checklist Item</th>
+
+            <th>Justification</th>
+
         </tr>
 
-       
-<tr>
+        <tr>
+	
     <td class="sub-heading">4.2 Testing for Default Credentials</td>
     <td></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Enumerate the applications for default credentials and validate if they still exist.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
     
 
@@ -936,33 +1119,39 @@
 
         <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Determine the criteria for triggering a lockout (e.g., number of failed login attempts, time period).</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Test the lockout mechanism by exceeding the allowed number of failed login attempts.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Determine if the lockout mechanism is triggered as expected and denies access.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Assess whether the lockout period is appropriate and provides sufficient protection against brute-force attacks.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Test the lockout mechanism for bypass using automated tools or techniques.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Evaluate the effectiveness of any CAPTCHA implementation in preventing automated attacks.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td class="sub-heading">4.4 Testing for Bypassing Authentication Schema</td>
@@ -970,28 +1159,33 @@
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Test for direct page request (forced browsing) to identify unprotected pages.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Attempt parameter modification to gain unauthorized access to protected areas.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Check for predictable session ID generation and potential session hijacking.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Test for SQL injection vulnerabilities in the authentication process.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Assess the application's source code for potential vulnerabilities and weak comparisons.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
         
 <tr>
@@ -1002,38 +1196,45 @@
 
         <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Review the implementation of the "Remember Password" feature.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Identify where remembered passwords are stored.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Evaluate encryption and security measures for stored passwords.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Test the password retrieval process for authentication.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Verify the presence of expiry and revocation mechanisms for saved passwords.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Assess CORS policies to prevent unauthorized access to stored passwords.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Evaluate error handling for remembered password-related scenarios.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td class="sub-heading">4.6 Testing for Browser Cache Weaknesses</td>
@@ -1043,38 +1244,45 @@
 
         <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Understand how the web application utilizes browser caching.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Review Cache-Control headers for caching directives.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Inspect HTTPS configuration for encryption of sensitive data.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Test for cache poisoning by manipulating caching headers or parameters.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Verify cache clearing mechanisms for users to remove sensitive data.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Check CORS policies to prevent unauthorized access to cached sensitive data.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Test for persistence of sensitive data across sessions in the browser cache.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td class="sub-heading">4.7 Testing for Weak Password Policy</td>
@@ -1083,23 +1291,27 @@
 
         <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Evaluate character requirements for passwords.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Assess the complexity requirements for passwords, including minimum length and the use of special characters.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Check for restrictions on password reuse.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Evaluate if the application enforces password aging policies.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td class="sub-heading">4.8 Testing for Weak Security Question Answer</td>
@@ -1109,28 +1321,33 @@
 
         <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Review security questions for predictability.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Manually attempt guessing answers.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Use automation tools to brute force common answers.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Check if attempt limits are applied.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Test account access with known question-answer pairs.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td class="sub-heading">4.9 Testing for Weak Password Change or Reset Functionalities</td>
@@ -1140,48 +1357,57 @@
 
         <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Assess the strength of the reset process compared to authentication.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Check for protections against automated attacks.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Evaluate vulnerability to common attacks such as SQL injection or cross-site scripting.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Review email-based reset mechanisms for security.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Assess the security of tokens sent via SMS or phone call.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Consider the effectiveness of using security questions for authentication.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Verify the need for re-authentication before changing passwords.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Check for vulnerabilities like CSRF in the password change form.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest4-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Evaluate the strength and effectiveness of the applied password policy.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
  
     </table>
@@ -1193,40 +1419,56 @@
 
 
     <button class="collapsible">05- Authorization Testing</button>
-<div class="content">
+	
+	<div class="content">
+
     <table>
-       <tr>
+
+        <tr>
+
             <th>Sub-Heading</th>
+
             <th>
-                <input type="checkbox" id="ptest5" onclick="toggleAll(this, '.ptest5-checklist')"> Select All
+
+                <input type="checkbox" id="selectAllInfo" onclick="toggleAll(this, '.ptest5-checklist')"> Select All
+
             </th>
+
             <th>Checklist Item</th>
+
+            <th>Justification</th>
+
         </tr>
-   
-<tr>
+
+        <tr>
+
     <td class="sub-heading">5.1 - Testing Directory Traversal File Include</td>
     <td></td>
 </tr>
 
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Utilize security scanning tools (e.g., Burp Suite, OWASP ZAP) to identify potential directory traversal and file inclusion vulnerabilities.</td>
+<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Configure scanners to manipulate input parameters and analyze responses for anomalies.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Employ fuzz testing tools to generate a variety of input combinations, including potential traversal attempts.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Analyze application responses for unexpected behavior.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 
 <tr>
@@ -1237,33 +1479,39 @@
 
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Review and understand the application's access control policies and configurations.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Verify access based on different user roles.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Test for access to resources restricted to higher-privileged users.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Attempt to access administrative functions with non-administrative user credentials.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Test how the application handles special request headers, such as X-Forwarded-For or X-Original-URL.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Explore if manipulating these headers can lead to unauthorized access or bypass of security controls.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 
 <tr>
@@ -1274,18 +1522,21 @@
 
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Verify that it is not possible to modify user privileges or roles.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Test for the ability to access resources or functions that should be restricted to higher-privileged users.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item">Attempt to access administrative functions with non-administrative user credentials.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 
 <tr>
@@ -1295,23 +1546,27 @@
 
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Identify Input Points:</strong> Enumerate all input points where the application interacts with user-controlled data, such as URLs, parameters, and form fields.</td>
+<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Manipulate Object References:</strong> Systematically manipulate object references by altering values in URLs, parameters, or input fields.</td>
+<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Test Direct Object References:</strong> Attempt to access objects directly by tampering with identifiers or references in requests.</td>
+<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Enumerate and Brute Force:</strong> Enumerate potential object references and perform brute-force attacks to discover hidden or sensitive data.</td>
+<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 
 <tr>
@@ -1322,110 +1577,1555 @@
 
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Inspect OAuth Configuration:</strong> Review client ID, client secret, and OAuth endpoints for proper configuration.</td>
+<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Inspect OAuth Configuration:</strong> Check for the use of insecure client secrets.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Check Token Validation:</strong> Attempt to use invalid or tampered access tokens.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Check Token Validation:</strong> Verify that the application validates tokens issued by legitimate authorization servers.</td>
+<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Test Token Storage and Handling:</strong> Assess token storage and handling practices.</td>
+	<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Test Token Storage and Handling:</strong> Check for vulnerabilities such as insecure storage or transmission of tokens.</td>
+<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Explore Token Scope Limitations:</strong> Test if the application enforces proper OAuth token scopes.</td>
+<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Explore Token Scope Limitations:</strong> Attempt to access resources with tokens that have limited scopes.</td>
+<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Examine Redirect URI Security:</strong> Verify that redirect URIs are securely registered and trusted.</td>
+<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Examine Redirect URI Security:</strong> Test for open redirect vulnerabilities.</td>
+<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Test for Token Expiration Handling:</strong> Use expired tokens to check how the application handles token expiration.</td>
+<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 <tr>
     <td></td>
-    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist"></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest5-checklist" onchange="toggleJustification(this)"></td>
     <td class="checklist-item"><strong>Test for Token Expiration Handling:</strong> Verify that tokens are automatically refreshed or reauthorized as needed.</td>
+<td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
 </tr>
 
     </table>
 </div>
 
-       <script>
-        function printPage() {
-            window.print(); // Opens the print dialog
-        }
-    </script>
+
+
+<!-- ------------------------------------------------------------------------------------------6th module -->
+
+
+ <button class="collapsible">06- Session Management Testing</button>
+	
+	<div class="content">
+
+    <table>
+
+        <tr>
+
+            <th>Sub-Heading</th>
+
+            <th>
+
+                <input type="checkbox" id="selectAllInfo" onclick="toggleAll(this, '.ptest6-checklist')"> Select All
+
+            </th>
+
+            <th>Checklist Item</th>
+
+            <th>Justification</th>
+
+        </tr>
+
+        <tr>
+
+    <td class="sub-heading">6.1 Testing for Session Management Schema</td>
+    <td></td>
+</tr>
+
+<!-- Session Creation -->
+<tr>
+    <td colspan="4"><strong><center>Session Creation:</center></strong></td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Verify that session tokens are securely generated using a cryptographically strong random number generator.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Ensure session identifiers are unique and not easily guessable.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Check for any predictable patterns or sequences in session token generation.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<!-- Session Management -->
+<tr>
+    <td colspan="4"><strong><center>Session Management:</center></strong></td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Test session timeout by keeping a session idle for the configured duration and then making a request.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Validate session persistence across different application functions and pages.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Check if session-related cookies are marked with secure and HttpOnly flags.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<!-- Session Termination -->
+<tr>
+    <td colspan="4"><strong><center>Session Termination:</center></strong></td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Test logout functionality to ensure it effectively terminates the session.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Verify that session data is cleared both client-side (cookies) and server-side upon logout.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Assess how the application handles session expiration due to user inactivity.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<!-- Session Token Handling -->
+<tr>
+    <td colspan="4"><strong><center>Session Token Handling:</center></strong></td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Examine how session tokens are transmitted (e.g., over HTTPS, not in URLs).</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Review session token storage mechanisms to ensure they are not exposed to client-side scripting (e.g., XSS).</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Check for token regeneration upon privilege level changes or sensitive actions (e.g., password change).</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+<tr>
+  <td class="sub-heading">6.2 Testing for Cookies Attributes</td>
+    <td></td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Check if session cookies are marked with the secure flag such as Secure , HTTPOnly , SameSite and so on.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+
+<tr>
+  <td class="sub-heading">6.3 Testing for Session Fixation</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Check if a new session ID is issued upon successful authentication.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Attempt to send a valid session identifier to a user and verify privilege assignment.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+  <td class="sub-heading">6.4 Testing for Exposed Session Variables</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">How are Session IDs transferred? e.g., GET, POST, Form Field (including hidden fields).</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Are Session IDs always sent over encrypted transport by default?</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Is it possible to manipulate the application to send Session IDs unencrypted? e.g., by changing HTTPS to HTTP?</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">What cache-control directives are applied to requests/responses passing Session IDs?</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Are these directives always present? If not, where are the exceptions?</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Are GET requests incorporating the Session ID used?</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">If POST is used, can it be interchanged with GET?</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+  <td class="sub-heading">6.5 Testing for Cross Site Request Forgery</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">List out critical actions that require authentication (e.g., changing settings, making transactions).</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Identify if the application uses anti-CSRF tokens or headers like SameSite cookies.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Create a proof-of-concept CSRF attack to test against identified critical functionalities.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Explore how CSRF might affect different user roles and scenarios within the application.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Analyze if the application has implemented effective CSRF protections (e.g., unique tokens per session, enforcing Referer headers).</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+  <td class="sub-heading">6.6 Testing for Logout Functionality</td>
+    <td></td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Test the functionality of the logout button or URL to ensure it effectively terminates the session.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Inspect cookies, local storage, and session storage to confirm that sensitive information is cleared upon logout.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Attempt to access authenticated resources after logout to verify proper redirection to the login page.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Determine the configured session timeout duration and test if sessions expire after this duration of inactivity.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+  <td class="sub-heading">6.8 Testing for Session Puzzling</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Determine how session IDs are created (e.g., random strings, timestamps, user-specific data).</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Attempt to manually guess session IDs based on patterns or common sequences.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Employ automated tools or scripts to brute-force session IDs and identify vulnerabilities.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+<tr>
+  <td class="sub-heading">6.9 Testing for Session Hijacking</td>
+    <td></td>
+</tr>
+
+
+ <tr>
+
+        <td></td>
+
+        <td class="checklist-item" colspan="3"><strong>Session Token Strength:</strong></td>
+
+    </tr>
+
+    <tr>
+
+        <td></td>
+
+        <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+
+        <td class="checklist-item">Are session tokens unpredictable and sufficiently long?</td>
+
+        <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+
+    </tr>
+
+    <tr>
+
+        <td></td>
+
+        <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+
+        <td class="checklist-item">Is a secure algorithm used for token generation?</td>
+
+        <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+
+    </tr>
+
+
+    <!-- Cookie Security -->
+
+    <tr>
+
+        <td></td>
+
+        <td class="checklist-item" colspan="3"><strong>Cookie Security:</strong></td>
+
+    </tr>
+
+    <tr>
+
+        <td></td>
+
+        <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+
+        <td class="checklist-item">Are the HttpOnly and Secure flags set for session cookies?</td>
+
+        <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+
+    </tr>
+
+    <tr>
+
+        <td></td>
+
+        <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+
+        <td class="checklist-item">Is the SameSite attribute configured properly?</td>
+
+        <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+
+    </tr>
+
+
+    <!-- Session Fixation -->
+
+    <tr>
+
+        <td></td>
+
+        <td class="checklist-item" colspan="3"><strong>Session Fixation:</strong></td>
+
+    </tr>
+
+    <tr>
+
+        <td></td>
+
+        <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+
+        <td class="checklist-item">Can an attacker set a session ID before authentication?</td>
+
+        <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+
+    </tr>
+
+    <tr>
+
+        <td></td>
+
+        <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+
+        <td class="checklist-item">Does the application regenerate session IDs after login?</td>
+
+        <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+
+    </tr>
+
+
+    <!-- Session Expiration -->
+
+    <tr>
+
+        <td></td>
+
+        <td class="checklist-item" colspan="3"><strong>Session Expiration:</strong></td>
+
+    </tr>
+
+    <tr>
+
+        <td></td>
+
+        <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+
+        <td class="checklist-item">Does the application have a session timeout policy?</td>
+
+        <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+
+    </tr>
+
+    <tr>
+
+        <td></td>
+
+        <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+
+        <td class="checklist-item">Is the session invalidated after logout?</td>
+
+        <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+
+    </tr>
+
+
+    <!-- Replay Attacks -->
+
+    <tr>
+
+        <td></td>
+
+        <td class="checklist-item" colspan="3"><strong>Replay Attacks:</strong></td>
+
+    </tr>
+	
+	    <tr>
+        <td></td>
+        <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+        <td class="checklist-item">Can captured session tokens be reused to access the application?</td>
+        <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+        <td class="checklist-item">Are there mechanisms in place to detect and prevent replay attacks?</td>
+        <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+    </tr>
+
+<tr>
+  <td class="sub-heading">6.10 Testing JSON Web Tokens</td>
+</tr>
+	
+	    <tr>
+        <td></td>
+
+        <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+
+        <td class="checklist-item">Inspect JWT Structure: Ensure it follows the standard format and doesn't expose sensitive data.</td>
+
+        <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+
+    </tr>
+
+    <tr>
+
+        <td></td>
+
+        <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+
+        <td class="checklist-item">Verify Algorithm: Check for strong, secure algorithms and reject none algorithm.</td>
+
+        <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+
+    </tr>
+
+    <tr>
+
+        <td></td>
+
+        <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+
+        <td class="checklist-item">Validate Signatures: Ensure signatures are validated using the correct keys.</td>
+
+        <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+
+    </tr>
+
+    <tr>
+
+        <td></td>
+
+        <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+
+        <td class="checklist-item">Check Expiration: Ensure JWTs have a reasonable expiration time and are properly enforced.</td>
+
+        <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+
+    </tr>
+
+    <tr>
+
+        <td></td>
+
+        <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+
+        <td class="checklist-item">Verify Audience and Issuer: Ensure JWTs have the correct aud and iss claims.</td>
+
+        <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+
+    </tr>
+
+    <tr>
+
+        <td></td>
+
+        <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+
+        <td class="checklist-item">Test for Replay Attacks: Ensure tokens cannot be reused inappropriately.</td>
+
+        <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+
+    </tr>
+
+    <tr>
+
+        <td></td>
+
+        <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+
+        <td class="checklist-item">Review Key Management: Ensure secure storage and rotation of JWT keys.</td>
+
+        <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+
+    </tr>
+
+<tr>
+
+<tr>
+  <td class="sub-heading">6.11 Testing for Concurrent Sessions</td>
+    <td></td>
+</tr>
+
+
+
+    <tr>
+
+        <td></td>
+
+        <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+
+        <td class="checklist-item">Capture a valid session token (e.g., cookie or JWT) during user login.</td>
+
+        <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+
+    </tr>
+
+    <tr>
+
+        <td></td>
+
+        <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+
+        <td class="checklist-item">Attempt to create multiple active sessions using the same token.</td>
+
+        <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+
+    </tr>
+
+    <tr>
+
+        <td></td>
+
+        <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+
+        <td class="checklist-item">Test the application's behavior when accessing it with the same token from different browser instances.</td>
+
+        <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+
+    </tr>
+
+    <tr>
+
+        <td></td>
+
+        <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+
+        <td class="checklist-item">Evaluate the application's handling of concurrent sessions originating from the same IP address.</td>
+
+        <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+
+    </tr>
+
+    <tr>
+
+        <td></td>
+
+        <td class="checklist-item"><input type="checkbox" class="ptest6-checklist" onchange="toggleJustification(this)"></td>
+
+        <td class="checklist-item">Assess the application's ability to manage concurrent sessions from different IP addresses and locations.</td>
+
+        <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+
+    </tr>
+    </table>
+</div>
+
+
+
+<!-- 7th module............................................ -->
+
+ <button class="collapsible">07 - Input Validation Testing</button>
+<div class="content">
+
+    <table>
+
+        <tr>
+
+            <th>Sub-Heading</th>
+
+            <th>
+
+                <input type="checkbox" id="selectAllInfo" onclick="toggleAll(this, '.ptest7-checklist')"> Select All
+
+            </th>
+
+            <th>Checklist Item</th>
+
+            <th>Justification</th>
+
+        </tr>
+
+        <tr>
+
+    <td class="sub-heading">7.1 Testing for Reflected Cross Site Scripting</td>
+    <td></td>
+</tr>
+
+<!-- Session Creation -->
+
+<tr>
+
+        <td></td>
+
+        <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+
+        <td class="checklist-item">Identify all user input points in the application.</td>
+
+        <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+
+    </tr>
+
+    <tr>
+
+        <td></td>
+
+        <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+
+        <td class="checklist-item">Craft a variety of XSS payloads.</td>
+
+        <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+
+    </tr>
+
+    <tr>
+
+        <td></td>
+
+        <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+
+        <td class="checklist-item">Submit payloads via GET and POST requests.</td>
+
+        <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+
+    </tr>
+
+    <tr>
+
+        <td></td>
+
+        <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+
+        <td class="checklist-item">Test for different input encodings.</td>
+
+        <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+
+    </tr>
+
+    <tr>
+
+        <td></td>
+
+        <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+
+        <td class="checklist-item">Check for script execution in the response.</td>
+
+        <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+
+    </tr>
+
+    <tr>
+
+        <td></td>
+
+        <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+
+        <td class="checklist-item">Evaluate the effectiveness of any input validation or sanitization mechanisms.</td>
+
+        <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+
+    </tr>
+  <td class="sub-heading">7.2 Testing for Stored Cross Site Scripting</td>
+    <td></td>
+</tr>
+
+   <tr>
+        <td></td>
+        <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+        <td class="checklist-item">Locate all places where user input is stored and can be retrieved later (e.g., user profiles, comments, messages).</td>
+        <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+        <td class="checklist-item">Use a variety of payloads to test for different contexts and encodings.</td>
+        <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+        <td class="checklist-item">Ensure payloads are stored correctly and executed when retrieved.</td>
+        <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+        <td class="checklist-item">Check if the payload is executed when the stored data is retrieved and rendered.</td>
+        <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+        <td class="checklist-item">Look for signs of script execution like alerts, changes in HTML structure, or unexpected behaviors.</td>
+        <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+        <td class="checklist-item">Attempt to bypass input filters using different encoding methods (e.g., URL encoding, HTML encoding).</td>
+        <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+    </tr>
+
+<tr>
+  <td class="sub-heading">7.4 Testing for HTTP Parameter Pollution</td>
+    <td></td>
+</tr>
+
+  <tr>
+
+        <td></td>
+
+        <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+
+        <td class="checklist-item">Identify all user input points that accept GET or POST parameters.</td>
+
+        <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+
+    </tr>
+
+    <tr>
+
+        <td></td>
+
+        <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+
+        <td class="checklist-item">Craft payloads with duplicate parameters having the same name but different values.</td>
+
+        <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+
+    </tr>
+
+
+<tr>
+  <td class="sub-heading">7.5 Testing for SQL Injection</td>
+    <td></td>
+</tr>
+
+
+<tr>
+
+        <td></td>
+
+        <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+
+        <td class="checklist-item">Verify all potential input vectors (forms, URLs, headers, etc.).</td>
+
+        <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+
+    </tr>
+
+    <tr>
+
+        <td></td>
+
+        <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+
+        <td class="checklist-item">Use a range of SQL injection payloads including simple, union-based, error-based, and blind injections.</td>
+
+        <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+
+    </tr>
+
+    <tr>
+
+        <td></td>
+
+        <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+
+        <td class="checklist-item">Look for error messages, unexpected behaviors, or changes in application response time.</td>
+
+        <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+
+    </tr>
+
+    <tr>
+
+        <td></td>
+
+        <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+
+        <td class="checklist-item">Confirm the injection is possible and determine the impact (e.g., unauthorized data access, database modification).</td>
+
+        <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+
+    </tr>
+
+<tr>
+  <td class="sub-heading">7.6 Testing for LDAP Injection</td>
+    <td></td>
+</tr>
+
+
+<tr>
+
+        <td></td>
+
+        <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+
+        <td class="checklist-item">Identify all input fields and parameters that interact with LDAP systems.</td>
+
+        <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+
+    </tr>
+
+    <tr>
+
+        <td></td>
+
+        <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+
+        <td class="checklist-item">Develop and collect a range of LDAP injection payloads to test different aspects of LDAP queries.</td>
+
+        <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+
+    </tr>
+
+    <tr>
+
+        <td></td>
+
+        <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+
+        <td class="checklist-item">Test each input field with your prepared payloads and observe the application's behavior.</td>
+
+        <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+
+    </tr>
+
+    <tr>
+
+        <td></td>
+
+        <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+
+        <td class="checklist-item">Look for signs of LDAP query manipulation, such as unauthorized data access or system errors.</td>
+
+        <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+
+    </tr>
+
+
+<tr>
+  <td class="sub-heading">7.7 Testing for XML Injection</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Identify all input fields that accept XML data (GET, POST, file uploads).</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Test for common XML injection payloads.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Check for error messages indicating XML processing issues.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Use automated tools to scan for vulnerabilities.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Conduct blind injection tests to infer data.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+
+  <td class="sub-heading">7.8 Testing for SSI Injection</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">List all fields and parameters that might be processed by SSI (e.g., file uploads, URL parameters).</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Test for SSI injection vulnerabilities using both manual and automated methods.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Check for the presence of .shtml files or other indicators of SSI support.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Test for common SSI injection payloads.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+ 
+<tr>
+  <td class="sub-heading">7.9 Testing for XPath Injection</td>
+
+</tr>
+	
+	
+	<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Identify all input fields that accept user data (GET, POST, headers).</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Test for common XPath injection payloads.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Check for error messages indicating XPath processing issues.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+	
+<tr>
+  <td class="sub-heading">7.10 Testing for IMAP SMTP Injection</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Identify potential IMAP/SMTP injection points in the web application.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Test for IMAP/SMTP injection vulnerabilities using both manual and automated methods.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Analyze application responses for signs of IMAP/SMTP injection.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Attempt to exploit the vulnerabilities to demonstrate impact (e.g., unauthorized emails sent).</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+  <td class="sub-heading">7.11 Testing for Code Injection</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Identify Input Fields: List all fields where user input is accepted.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Test for Code Execution: Submit known payloads that could execute code (e.g., &lt;?php phpinfo(); ?&gt;).</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Check Response Codes: Monitor HTTP response codes and application behavior after submitting payloads.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+<tr>
+  <td class="sub-heading">7.11.1 Testing for File Inclusion</td>
+    <td></td>
+</tr>
+<tr>
+    <td colspan="4" style="text-align: center;">
+        <strong>File Inclusion Vulnerability Testing Checklist</strong>
+    </td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Identify Input Parameters: List all input fields that might accept file paths.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Test for RFI: Use payloads to attempt including remote files.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Test for LFI: Use directory traversal techniques to access sensitive local files.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Check Error Messages: Analyze any error messages returned by the application for clues about file paths and vulnerabilities.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+
+
+<tr>
+  <td class="sub-heading">7.12 Testing for Command Injection</td>
+    <td></td>
+</tr>
+
+
+<tr>
+    <td colspan="4" style="text-align: center;">
+        <strong>Command Injection Vulnerability Testing Checklist</strong>
+        <center></center>
+    </td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Identify input fields and parameters that could interact with the system shell.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Test with common command injection characters (;, &&, |, etc.).</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Observe server responses and look for evidence of unintended command execution.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">If direct responses are not shown, attempt blind command injection using time delays or external calls (e.g., DNS requests).</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Ensure testing is done on different OS platforms (Windows, Linux) with appropriate system commands.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Use automation tools like Burp Suite or OWASP ZAP/Commix to assist in finding injection points.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+  <td class="sub-heading">7.13.1 Testing for Format String Injection</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Identify input fields where user input might be passed to formatting functions (e.g., error messages, logging, string outputs).</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Inject common format specifiers such as %s, %x, %d, and observe the application's response.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Check for unexpected outputs like memory addresses, crash reports, or sensitive data leaks.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Use %n specifier to test if it's possible to write data to memory (this can signal a critical vulnerability).</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Conduct blind format string injection by reviewing server logs and monitoring error messages for unintended output.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+  <td class="sub-heading">7.14 Testing for Incubated Vulnerability</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Identify all user input points in the application.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Send various payloads and inputs to dormant inputs, including known vulnerabilities like SQLi or XSS.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Analyze how the application handles and processes inputs intended for dormant features, looking for vulnerabilities or unexpected behavior.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+  <td class="sub-heading">7.15 Testing for HTTP Splitting Smuggling</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Identify all input points that can influence HTTP headers.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Submit payloads with CR and LF characters. Analyze responses for signs of splitting.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Look for conflicting Content-Length and Transfer-Encoding headers. Send crafted requests and analyze server behavior.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+  <td class="sub-heading">7.16 Testing for HTTP Incoming Requests</td>
+    <td></td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Identify all input points that can influence HTTP headers.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Submit payloads with CR and LF characters. Analyze responses for signs of splitting.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Look for conflicting Content-Length and Transfer-Encoding headers. Send crafted requests and analyze server behavior.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+  <td class="sub-heading">7.17 Testing for Host Header Injection</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item"><strong>Identify Points of Host Header Usage:</strong> Look for places where the application uses the Host header, such as URL generation and redirects.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item"><strong>Test Host Header Manipulation:</strong> Modify the Host header to check if the application trusts the injected value.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item"><strong>Check for Password Reset Poisoning:</strong> Manipulate the Host header during password reset requests to see if the generated link uses your malicious domain.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item"><strong>Test for Cache Poisoning:</strong> Attempt to poison the cache by injecting a malicious Host header and analyzing how the application caches content.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item"><strong>Analyze Logs and Responses:</strong> Ensure that manipulated Host headers do not appear in server logs or responses, and that no unexpected behavior occurs.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+  <td class="sub-heading">7.18 Testing for Server-side Template Injection</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item"><strong>Look for functions that fetch URLs, generate previews, or handle external resources:</strong> Identify areas in the application that interact with external resources.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item"><strong>Attempt to use internal IP addresses, local addresses (127.0.0.1), or metadata services in your input:</strong> Probe internal networks for potential SSRF vulnerabilities.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item"><strong>Test if the server can send requests to external domains under your control:</strong> Confirm outbound SSRF by checking if the server can reach your controlled domains.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item"><strong>Check if the server’s response leaks sensitive information:</strong> Analyze responses for any sensitive data or evidence that the request was made.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item"><strong>Ensure the application has adequate filtering mechanisms:</strong> Verify that the application prevents requests to internal systems or unauthorized external services.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+  <td class="sub-heading">7.20 Testing for Mass Assignment</td>
+    <td></td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item"><strong>Locate where user input is mapped directly to internal objects:</strong> Identify areas where user input can directly affect internal objects, such as user profiles or transactions.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item"><strong>Test adding unexpected parameters to the request body or URL:</strong> Attempt to include parameters like roles, permissions, or financial data to see how the application responds.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item"><strong>Determine if the server accepts and applies unauthorized changes:</strong> Check if the application allows unauthorized modifications, indicating a potential mass assignment vulnerability.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest7-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item"><strong>Check if the application restricts certain fields from being modified:</strong> Verify if the application implements whitelisting for allowed fields to prevent unauthorized changes.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
     
+    </table>
+</div>
+
+
 <script>
+    function printPage() {
+        window.print(); // Opens the print dialog
+    }
+
     // Function to Toggle All Checkboxes in the Same Section
     function toggleAll(source, checklistClass) {
-        var checkboxes = document.querySelectorAll(checklistClass);
-        for (var i = 0; i < checkboxes.length; i++) {
-            checkboxes[i].checked = source.checked;
+        const checkboxes = document.querySelectorAll(checklistClass);
+        checkboxes.forEach(checkbox => {
+            checkbox.checked = source.checked; // Check/uncheck each checkbox
+            toggleJustification(checkbox); // Call toggleJustification to show/hide justification fields
+        });
+    }
+
+    // Function to toggle justification field visibility
+    function toggleJustification(checkbox) {
+        const justificationInput = checkbox.closest('tr').querySelector('.justification');
+
+        if (justificationInput) { // Check if justificationInput exists
+            if (checkbox.checked) {
+                justificationInput.style.display = "none"; // Hide justification field if checked
+            } else {
+                justificationInput.style.display = "block"; // Show justification field if unchecked
+            }
         }
     }
 
-    var coll = document.getElementsByClassName("collapsible");
-    for (var i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function() {
-            this.classList.toggle("active");
-            var content = this.nextElementSibling;
-            if (content.style.maxHeight){
-                content.style.maxHeight = null;
-            } else {
-                content.style.maxHeight = content.scrollHeight + "px";
+    // Function to initialize the justification fields on page load
+    function initializeJustifications(checklistClass) {
+        const checkboxes = document.querySelectorAll(checklistClass);
+        checkboxes.forEach(checkbox => {
+            const justificationInput = checkbox.closest('tr').querySelector('.justification');
+            if (justificationInput) { // Check if justificationInput exists
+                justificationInput.style.display = checkbox.checked ? "none" : "block";
             }
         });
     }
-</script>
-<script>
 
+    // Initialize justification fields on page load for all checklist classes
+    window.onload = function() {
+        initializeJustifications('.info-checklist');
+        initializeJustifications('.config-checklist');
+		initializeJustifications('.ptest-checklist');
+		initializeJustifications('.ptest4-checklist');
+		initializeJustifications('.ptest5-checklist');
+		initializeJustifications('.ptest6-checklist');
+		initializeJustifications('.ptest7-checklist');
+		initializeJustifications('.ptest8-checklist');
+		initializeJustifications('.ptest9-checklist');
+		initializeJustifications('.ptest10-checklist');
+		initializeJustifications('.ptest11-checklist');
+		initializeJustifications('.ptest12-checklist');
+		
+		
+        // Add more classes as needed
+    };
 
-    function toggleJustification(checkbox) {
-    const justificationInput = checkbox.closest('tr').querySelector('.justification');
-    if (checkbox.checked) {
-        justificationInput.style.display = "none"; // Hide justification field if checked
-        justificationInput.value = ""; // Clear the justification input when checked
-    } else {
-        justificationInput.style.display = "block"; // Show justification field if unchecked
+    // Collapsible functionality
+    const collapsibles = document.getElementsByClassName("collapsible");
+    for (let i = 0; i < collapsibles.length; i++) {
+        collapsibles[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            const content = this.nextElementSibling;
+
+            if (content.style.display === "block") {
+                content.style.display = "none";
+                content.style.maxHeight = null; // Reset maxHeight
+            } else {
+                content.style.display = "block";
+                content.style.maxHeight = content.scrollHeight + "px"; // Set maxHeight
+            }
+        });
     }
-}
-</script>
 
+    // Function to auto-resize textarea
+    function autoResize(textarea) {
+        textarea.style.height = 'auto'; // Reset height
+        textarea.style.height = textarea.scrollHeight + 'px'; // Set height to scrollHeight
+    }
+
+    // Add event listeners to textareas for auto-resizing
+    const textareas = document.querySelectorAll('textarea'); // Select all textarea elements
+    textareas.forEach(textarea => {
+        textarea.addEventListener('input', function() {
+            autoResize(this); // Call autoResize on input
+        });
+    });
+</script>
+ 
 
 </body>
 </html>
