@@ -3037,6 +3037,64 @@
 </div>
 
 
+<!-- 8th Module ------------------- -->
+
+<button class="collapsible">08 Testing for Error Handling</button>
+<div class="content">
+
+    <table>
+
+        <tr>
+
+            <th>Sub-Heading</th>
+
+            <th>
+
+                <input type="checkbox" id="selectAllInfo" onclick="toggleAll(this, '.ptest8-checklist')"> Select All
+
+            </th>
+
+            <th>Checklist Item</th>
+
+            <th>Justification</th>
+
+        </tr>
+
+        <tr>
+
+    <td class="sub-heading">8.1 Testing for Improper Error Handling</td>
+    <td></td>
+</tr>
+
+<tr>
+
+        <td></td>
+
+        <td class="checklist-item"><input type="checkbox" class="ptest8-checklist" onchange="toggleJustification(this)"></td>
+
+        <td class="checklist-item">Submit invalid data or requests to trigger errors and observe the application's error handling.</td>
+
+        <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+
+    </tr>
+
+    <tr>
+
+        <td></td>
+
+        <td class="checklist-item"><input type="checkbox" class="ptest8-checklist" onchange="toggleJustification(this)"></td>
+
+        <td class="checklist-item">Check if detailed error messages reveal sensitive information like file paths, database errors, or stack traces.</td>
+
+        <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+
+    </tr>
+
+     
+    </table>
+</div>
+
+
 <script>
     function printPage() {
         window.print(); // Opens the print dialog
