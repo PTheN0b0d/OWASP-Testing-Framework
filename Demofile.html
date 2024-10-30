@@ -3037,6 +3037,709 @@
 </div>
 
 
+<!-- 8th Module ------------------- -->
+
+<button class="collapsible">08 Testing for Error Handling</button>
+<div class="content">
+
+    <table>
+
+        <tr>
+
+            <th>Sub-Heading</th>
+
+            <th>
+
+                <input type="checkbox" id="selectAllInfo" onclick="toggleAll(this, '.ptest8-checklist')"> Select All
+
+            </th>
+
+            <th>Checklist Item</th>
+
+            <th>Justification</th>
+
+        </tr>
+
+        <tr>
+
+    <td class="sub-heading">8.1 Testing for Improper Error Handling</td>
+    <td></td>
+</tr>
+
+<tr>
+
+        <td></td>
+
+        <td class="checklist-item"><input type="checkbox" class="ptest8-checklist" onchange="toggleJustification(this)"></td>
+
+        <td class="checklist-item">Submit invalid data or requests to trigger errors and observe the application's error handling.</td>
+
+        <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+
+    </tr>
+
+    <tr>
+
+        <td></td>
+
+        <td class="checklist-item"><input type="checkbox" class="ptest8-checklist" onchange="toggleJustification(this)"></td>
+
+        <td class="checklist-item">Check if detailed error messages reveal sensitive information like file paths, database errors, or stack traces.</td>
+
+        <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+
+    </tr>
+
+     
+    </table>
+</div>
+
+<!-- 9th module --------------------------- -->
+<button class="collapsible">09 - Testing For Weak Cryptography</button>
+<div class="content">
+
+    <table>
+
+        <tr>
+
+            <th>Sub-Heading</th>
+
+            <th>
+
+                <input type="checkbox" id="selectAllInfo" onclick="toggleAll(this, '.ptest9-checklist')"> Select All
+
+            </th>
+
+            <th>Checklist Item</th>
+
+            <th>Justification</th>
+
+        </tr>
+
+        <tr>
+
+    <td class="sub-heading">9.1 Testing for Weak Transport Layer Security</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest9-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Identify all endpoints that use TLS for secure communication.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest9-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Check the supported versions of TLS and ensure only TLS 1.2 or higher is enabled.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest9-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Evaluate the cipher suites used by the application and ensure only strong cipher suites are supported.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest9-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Verify the validity of SSL/TLS certificates, including expiration and issuer trust.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest9-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Perform SSL/TLS scans to identify vulnerabilities and weaknesses in the configuration.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+
+ <td class="sub-heading">9.2 Testing for Padding Oracle</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest9-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Determine encryption method : Identify the encryption algorithm (e.g., AES, DES) and the mode (e.g., CBC).</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest9-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Check for error messages: Look for application responses indicating padding errors.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest9-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Alter ciphertext: Modify ciphertext blocks and analyze the responses.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest9-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Craft and launch attack: Use manual methods or tools like PadBuster to exploit the padding oracle vulnerability.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest9-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Validate the impact: Confirm the extent of the data leakage and its potential risk to the application (e.g., session hijacking, sensitive data disclosure).</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+    
+ <td class="sub-heading">9.3 Testing for Sensitive Information Sent via Unencrypted Channels</td>
+    <td></td>
+</tr>
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest9-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Ensure all sensitive data (e.g., login forms, payment info) is transmitted via HTTPS.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest9-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Ensure that only secure versions of TLS (1.2 or higher) are used, and older protocols like SSLv2 or SSLv3 are disabled.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest9-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Ensure that HTTP Strict Transport Security (HSTS) headers are set to enforce HTTPS usage.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+ <td class="sub-heading">9.4 Testing for Weak Encryption</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest9-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Verify the algorithms used in the application (e.g., AES, RSA).</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest9-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Ensure the application does not use weak algorithms like MD5, SHA-1, or RC4.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest9-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Verify encryption key lengths are sufficiently strong (e.g., AES-128, RSA 2048).</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest9-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Ensure encryption keys are securely stored and managed.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+    
+    </table>
+</div>
+
+<!-- 10th module ----------------------------------------------- -->
+
+
+
+<button class="collapsible">10 - Business Logic Testing</button>
+<div class="content">
+
+    <table>
+
+        <tr>
+
+            <th>Sub-Heading</th>
+
+            <th>
+
+                <input type="checkbox" id="selectAllInfo" onclick="toggleAll(this, '.ptest10-checklist')"> Select All
+
+            </th>
+
+            <th>Checklist Item</th>
+
+            <th>Justification</th>
+
+        </tr>
+
+        <tr>
+
+    <td class="sub-heading">10.00 Introduction to Business Logic Testing</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest10-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Gain a thorough understanding of the application’s business logic, workflows, and rules.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest10-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Identify where business logic could be exploited or bypassed by attackers (e.g., double submission, price manipulation).</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest10-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Verify that users cannot bypass restrictions based on their role or permissions.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest10-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Try changing the sequence of operations or altering parameters to see if you can bypass business rules.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest10-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Test if actions like submitting forms multiple times or replaying requests can exploit the business logic (e.g., triggering duplicate payments or orders).</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+ <td class="sub-heading">10.1 Test Business Logic Data Validation</td>
+    <td></td>
+</tr>
+
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest10-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Understand business rules: Ensure you have a clear understanding of the core business logic rules, workflows, and expected behaviors.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest10-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Identify critical data points: Focus on data inputs that directly affect the business logic (e.g., prices, discounts, user roles).</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest10-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Manipulate data inputs: Test for logical data manipulation (e.g., altering prices, applying unauthorized discounts).</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest10-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Test edge cases: Look for scenarios like submitting negative values, skipping steps, or reordering workflow steps to exploit business logic flaws.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest10-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Check for inconsistent validation: Ensure that the same validation rules are enforced consistently across all relevant parts of the application.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+    
+ <td class="sub-heading">10.2 Test Ability to Forge Requests</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest10-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Review application documentation and understand business logic workflows.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest10-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Use an interception proxy (e.g., Burp Suite) to capture HTTP requests.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest10-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Identify hidden fields and parameters in forms and URLs.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest10-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Modify request parameters and analyze responses for unexpected behavior.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest10-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Attempt to bypass critical steps in workflows (e.g., skipping payment confirmation).</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest9-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Ensure all sensitive data (e.g., login forms, payment info) is transmitted via HTTPS.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest9-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Ensure that only secure versions of TLS (1.2 or higher) are used, and older protocols like SSLv2 or SSLv3 are disabled.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest9-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Ensure that HTTP Strict Transport Security (HSTS) headers are set to enforce HTTPS usage.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+ <td class="sub-heading">10.3 Test Integrity Checks</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest10-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Identify critical business data that should not be tampered with (prices, transaction IDs, user roles, etc.).</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest10-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Intercept key requests and modify values like prices or quantities.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest10-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Test if hidden form fields can be altered and sent back to the server.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest10-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Check if the server properly validates data integrity (e.g., recalculating totals or checking for unauthorized modifications).</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest10-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Attempt replay attacks to submit altered data multiple times.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest10-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Ensure that data integrity checks are server-side, not just client-side.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+ <td class="sub-heading">10.4 Test for Process Timing</td>
+    <td></td>
+</tr>
+
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest10-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Identify critical workflows that rely on timing or sequence of operations.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest10-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Test if time-sensitive processes (like sessions or deadlines) are properly enforced.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest10-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Send simultaneous or rapidly repeated requests to check for race conditions.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest10-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Test session expiration and timeout handling.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest10-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Check if rate limiting is implemented to prevent excessive requests in short timeframes.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest10-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Ensure proper synchronization in multi-step processes to avoid timing issues.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+
+ <td class="sub-heading">10.5 Test Number of Times a Function Can Be Used Limits</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest10-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Identify functions that should have usage limits (e.g., promo codes, file uploads, reward redemptions).</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest10-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Attempt to exceed these limits through repeated actions or requests.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest10-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Test the same functionality through different channels (web, API, mobile) to see if limits are consistently enforced.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest10-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Send replayed or simultaneous requests to check for race conditions or lack of usage tracking.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+
+ <td class="sub-heading">10.6 Testing for the Circumvention of Work Flows</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest10-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Identify critical workflows that consist of multiple steps (e.g., payments, registration, multi-step forms).</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest10-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Attempt to bypass important steps (login, approval, payment confirmation, etc.).</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest10-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Test whether the sequence of steps can be reordered or skipped.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest10-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Check if hidden fields or parameters control workflows and if they can be altered.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest10-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Ensure the application enforces workflow validation on the server side.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest10-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Test if workflows behave the same across different interfaces (web, mobile, API).</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+
+ <td class="sub-heading">10.7 Test Defenses Against Application Misuse</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest10-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Identify key functionalities that could be abused (e.g., discounts, form submissions, account creation).</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest10-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Attempt to misuse these functions by repeating actions or submitting excessive requests.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest10-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Test whether rate limiting is in place for actions like logins, uploads, or transactions.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest10-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Check if the application tracks and enforces limits on critical functions (e.g., discount code usage, reward redemptions).</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest10-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Test how the system responds to misuse attempts (rate limits, error messages, blocking actions).</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+
+
+ <td class="sub-heading">10.8 Test Upload of Unexpected File Types</td>
+    <td></td>
+</tr>
+
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest10-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Identify and test all file upload points within the application.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest10-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Attempt to upload unexpected file types (e.g., .exe, .php, .js, .html).</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest10-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Verify server response when uploading different file types (e.g., content-type headers, server-side checks).</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest10-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Check if uploaded files can be accessed and executed on the server.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+
+
+ <td class="sub-heading">10.9 Test Upload of Malicious Files</td>
+    <td></td>
+</tr>
+
+
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest10-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Identify and test all file upload points across the application.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest10-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Attempt to upload malicious files (e.g., .php, .exe, .jsp, or files with embedded scripts).</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+
+ <td class="sub-heading">10.10 Test Payment Functionality</td>
+    <td></td>
+</tr>
+
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest10-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Identify and understand the entire payment workflow.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest10-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Intercept and modify payment parameters (e.g., price, tax, discount) during checkout.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest10-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Verify if payments can be marked as completed without actual transaction completion.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest10-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Ensure refund processes are secure and cannot be manipulated for higher amounts.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td class="checklist-item"><input type="checkbox" class="ptest10-checklist" onchange="toggleJustification(this)"></td>
+    <td class="checklist-item">Test the security of sensitive payment data like credit card information.</td>
+    <td><textarea class="justification" placeholder="Justification if not covered" oninput="autoResize(this)"></textarea></td>
+</tr>
+
+    </table>
+</div>
+
+
 <script>
     function printPage() {
         window.print(); // Opens the print dialog
