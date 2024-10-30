@@ -1581,7 +1581,7 @@
         </tr>
         <tr>
             <td></td>
-       <td class="checklist-item"><input type ="checkbox" class="ptest5-checklist" onchange="toggleJustification(this)"></td>
+            <td class="checklist-item"><input type ="checkbox" class="ptest5-checklist" onchange="toggleJustification(this)"></td>
 
             <td class="checklist-item"><strong>Test Token Storage and Handling:</strong> Assess token storage and handling practices.</td>
 
@@ -1732,11 +1732,11 @@
 
         function initializeJustifications() {
 
-            const checkboxes = document.querySelectorAll('.info-checklist, .config-checklist, .ptest-checklist, .ptest4-checklist, .ptest5-checklist'); checkboxes.forEach(checkbox => { const justificationInput = checkbox.parentNode.parentNode.cells[3].firstElementChild; if (!checkbox.checked) { justificationInput.style.display = "block"; // Show justification for unchecked items } }); }
+            const checkboxes = document.querySelectorAll('.info-checklist, .config-checklist, .ptest-checklist, .ptest4
 
+-checklist, .ptest5-checklist'); checkboxes.forEach(checkbox => { const justificationInput = checkbox.parentNode.parentNode.cells[3].firstElementChild; if (!checkbox.checked) { justificationInput.style.display = "block"; // Show justification for unchecked items } }); }
 
-
-                                                         // Call the initialization function when the page loads
+    // Call the initialization function when the page loads
 
     window.onload = initializeJustifications;
 
@@ -1770,3 +1770,5 @@
     }
 
 </script>
+
+</body> </html>
