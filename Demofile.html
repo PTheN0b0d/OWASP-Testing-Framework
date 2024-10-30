@@ -1579,196 +1579,79 @@
             <td class="checklist-item"><strong>Check Token Validation:</strong> Verify that the application validates tokens issued by legitimate authorization servers.</td>
             <td><input type="text" class="justification" placeholder="Justification if not covered"></td>
         </tr>
-        <tr>
+            <tr>
             <td></td>
-            <td class="checklist-item"><input type ="checkbox" class="ptest5-checklist" onchange="toggleJustification(this)"></td>
-
+            <td class="checklist-item"><input type="checkbox" class="ptest5-checklist" onchange="toggleJustification(this)"></td>
             <td class="checklist-item"><strong>Test Token Storage and Handling:</strong> Assess token storage and handling practices.</td>
-
             <td><input type="text" class="justification" placeholder="Justification if not covered"></td>
-
         </tr>
-
         <tr>
-
             <td></td>
-
             <td class="checklist-item"><input type="checkbox" class="ptest5-checklist" onchange="toggleJustification(this)"></td>
-
             <td class="checklist-item"><strong>Test Token Storage and Handling:</strong> Check for vulnerabilities such as insecure storage or transmission of tokens.</td>
-
             <td><input type="text" class="justification" placeholder="Justification if not covered"></td>
-
         </tr>
-
         <tr>
-
             <td></td>
-
             <td class="checklist-item"><input type="checkbox" class="ptest5-checklist" onchange="toggleJustification(this)"></td>
-
             <td class="checklist-item"><strong>Explore Token Scope Limitations:</strong> Test if the application enforces proper OAuth token scopes.</td>
-
             <td><input type="text" class="justification" placeholder="Justification if not covered"></td>
-
         </tr>
-
         <tr>
-
             <td></td>
-
             <td class="checklist-item"><input type="checkbox" class="ptest5-checklist" onchange="toggleJustification(this)"></td>
-
             <td class="checklist-item"><strong>Explore Token Scope Limitations:</strong> Attempt to access resources with tokens that have limited scopes.</td>
-
             <td><input type="text" class="justification" placeholder="Justification if not covered"></td>
-
         </tr>
-
         <tr>
-
             <td></td>
-
             <td class="checklist-item"><input type="checkbox" class="ptest5-checklist" onchange="toggleJustification(this)"></td>
-
             <td class="checklist-item"><strong>Examine Redirect URI Security:</strong> Verify that redirect URIs are securely registered and trusted.</td>
-
             <td><input type="text" class="justification" placeholder="Justification if not covered"></td>
-
         </tr>
-
         <tr>
-
             <td></td>
-
             <td class="checklist-item"><input type="checkbox" class="ptest5-checklist" onchange="toggleJustification(this)"></td>
-
             <td class="checklist-item"><strong>Examine Redirect URI Security:</strong> Test for open redirect vulnerabilities.</td>
-
             <td><input type="text" class="justification" placeholder="Justification if not covered"></td>
-
         </tr>
-
-        <tr>
-
+               <tr>
             <td></td>
-
             <td class="checklist-item"><input type="checkbox" class="ptest5-checklist" onchange="toggleJustification(this)"></td>
-
-            <td class="checklist-item"><strong>Test for Token Expiration Handling:</strong> Use expired tokens to check how the application handles token expiration.</td>
-
-            <td><input type="text" class="justification" placeholder="Justification if not covered"></td>
-
-        </tr>
-
-        <tr>
-
-            <td></td>
-
-            <td class="checklist-item"><input type="checkbox" class="ptest5-checklist" onchange="toggleJustification(this)"></td>
-
             <td class="checklist-item"><strong>Test for Token Expiration Handling:</strong> Verify that tokens are automatically refreshed or reauthorized as needed.</td>
-
             <td><input type="text" class="justification" placeholder="Justification if not covered"></td>
-
         </tr>
-
-
     </table>
-
 </div>
 
-
-       <script>
-
-        function printPage() {
-
-            window.print(); // Opens the print dialog
-
-        }
-
-    </script>
-
-
-    <script>
-
-        // Function to Toggle All Checkboxes in the Same Section
-
-        function toggleAll(source, checklistClass) {
-
-            var checkboxes = document.querySelectorAll(checklistClass);
-
-            for (var i = 0; i < checkboxes.length; i++) {
-
-                checkboxes[i].checked = source.checked;
-
-            }
-
-        }
-
-
-        // Function to toggle justification visibility based on checkbox state
-
-        function toggleJustification(checkbox) {
-
-            const justificationInput = checkbox.parentNode.parentNode.cells[3].firstElementChild;
-
-            if (!checkbox.checked) {
-
-                justificationInput.style.display = "block"; // Show justification field if unchecked
-
-            } else {
-
-                justificationInput.style.display = "none"; // Hide justification field if checked
-
-                justificationInput.value = ""; // Clear the justification input when checked
-
-            }
-
-        }
-
-
-        // Function to initialize the justification fields on page load
-
-        function initializeJustifications() {
-
-            const checkboxes = document.querySelectorAll('.info-checklist, .config-checklist, .ptest-checklist, .ptest4
-
--checklist, .ptest5-checklist'); checkboxes.forEach(checkbox => { const justificationInput = checkbox.parentNode.parentNode.cells[3].firstElementChild; if (!checkbox.checked) { justificationInput.style.display = "block"; // Show justification for unchecked items } }); }
-
-    // Call the initialization function when the page loads
-
-    window.onload = initializeJustifications;
-
-</script>
-
-
 <script>
-
-    var coll = document.getElementsByClassName("collapsible");
-
-    for (var i = 0; i < coll.length; i++) {
-
-        coll[i].addEventListener("click", function() {
-
-            this.classList.toggle("active");
-
-            var content = this.nextElementSibling;
-
-            if (content.style.maxHeight){
-
-                content.style.maxHeight = null;
-
-            } else {
-
-                content.style.maxHeight = content.scrollHeight + "px";
-
-            }
-
-        });
-
+    function printPage() {
+        window.print(); // Opens the print dialog
     }
 
+    // Function to toggle justification visibility based on checkbox state
+    function toggleJustification(checkbox) {
+        const justificationInput = checkbox.parentNode.parentNode.cells[3].firstElementChild;
+        if (!checkbox.checked) {
+            justificationInput.style.display = "block"; // Show justification field if unchecked
+        } else {
+            justificationInput.style.display = "none"; // Hide justification field if checked
+            justificationInput.value = ""; // Clear the justification input when checked
+        }
+    }
+
+    // Function to initialize the justification fields on page load
+    function initializeJustifications() {
+        const checkboxes = document.querySelectorAll('.info-checklist, .config-checklist, .ptest-checklist, .ptest5-checklist');
+        checkboxes.forEach(checkbox => {
+            const justificationInput = checkbox.parentNode.parentNode.cells[3].firstElementChild;
+            justificationInput.style.display = checkbox.checked ? "none" : "block"; // Show or hide justification based on checkbox state
+        });
+    }
+
+    // Call the function to initialize justification fields on page load
+    window.onload = initializeJustifications;
 </script>
 
-</body> </html>
+</body>
+</html>
