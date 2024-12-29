@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pentest Checklist</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #343a40;
+            margin-bottom: 20px;
+        }
+        .checklist {
+            max-width: 800px;
+            margin: auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .hidden {
+            display: none;
+        }
+        .button {
+            margin: 10px 0;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        .slide-window {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 100%;
+            background-color: white;
+            border-left: 1px solid #ccc;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            transform: translateX(100%);
+            padding: 20px;
+            z-index: 10;
+        }
+        .slide-window.active {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body>
+    <h1>Pentest Checklist</h1>
+    <div class="checklist">
+        <table>
+            <thead>
+                <tr>
+                    <th>Common Finding</th>
+                    <th>Actionable</th>
+                    <th>Scannable</th>
+                    <th>Loggable</th>
+                    <th>Reference Links</th>
+                    <th>Justification</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="6"><strong>01. Information Gathering</strong></td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" id="ig1" onclick="toggleJustification(this)">
+                        <label for="ig1">Using component with Known Vulnerability - Server</label>
+                    </td>
+                    <td>Y</td>
+                    <td>Y</td>
+                    <td>Y</td>
+                    <td>
+                        <button class="button" onclick="toggleSlide('Information Gathering')">View Reference Links</button>
+                    </td>
+                    <td><input type="text" class="justification" placeholder="Justification if not covered"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" id="ig2" onclick="toggleJustification(this)">
+                        <label for="ig2">Information Disclosure</label>
+                    </td>
+                    <td>Y</td>
+                    <td>Y</td>
+                    <td>Y</td>
+                    <td>
+                        <button class="button" onclick="toggleSlide('Information Gathering')">View Reference Links</button>
+                    </td>
+                    <td><input type="text" class="justification" placeholder="Justification if not covered"></td>
+                </tr>
+                <tr>
+                    <td colspan="6"><strong>02. Configuration and Deployment Management Testing</strong></td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" id="c1" onclick="toggleJustification(this)">
+                        <label for="c1">Potentially Unwanted Ports Open</label>
+                    </td>
+                    <td>Y</td>
+                    <td>Y</td>
+                    <td>Y</td>
+                    <td>
+                        <button class="button" onclick="toggleSlide('Configuration and Deployment Management Testing')">View Reference Links</button>
+                    </td>
+                    <td><input type="text" class="justification" placeholder="Justification if not covered"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" id="c2" onclick="toggleJustification(this)">
+                        <label for="c2">Sensitive Page Accessible Publicly</label>
+                    </td>
+                    <td>Y</td>
+                    <td>Y</td>
+                    <td>Y</td>
+                    <td>
+                        <button class="button" onclick="toggleSlide('Configuration and Deployment Management Testing')">View Reference Links</button>
+                    </td>
+                    <td><input type="text" class="justification" placeholder="Justification if not covered"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="slide-window" class="slide-window">
+        <button class="button" onclick="closeSlide()">Close</button>
+        <div id="link-content"></div>
+    </div>
+
+    <script>
+        const links = {
+            "Information Gathering": [
+                { text: "Conduct Search Engine Discovery Reconnaissance for Information Leakage", url: "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=22699424" },
+                { text: "Fingerprint Web Server", url: "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=23071851" },
+				 { text: "Review Webserver Metafiles for Information Leakage", url: "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=23071861" },
+				 { text: "Enumerate Applications on Webserver", url: "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=23071871" },
+				  { text: "Review Webpage Content for Information Leakage", url: "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=23071879" },
+				  { text: "Identify Application Entry Points", url: "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=23071884" }
+				
+            ],
+            "Configuration and Deployment Management Testing": [
+                { text: "Configuration Testing Link 1", url: "https://example.com/link3" },
+                { text: "Configuration Testing Link 2", url: "https://example.com/link4" }
+            ]
+        };
+
+        function toggleJustification(checkbox) {
+            const justificationField = checkbox.closest('tr').querySelector('.justification');
+
+            if (checkbox.checked) {
+                justificationField.classList.add('hidden'); // Hide the field
+                justificationField.disabled = true; // Disable the field
+            } else {
+                justificationField.classList.remove('hidden'); // Show the field
+                justificationField.disabled = false; // Enable the field
+            }
+        }
+
+        function toggleSlide(section) {
+            const slideWindow = document.getElementById('slide-window');
+            const linkContent = document.getElementById('link-content');
+            linkContent.innerHTML = `<h3>${section} Reference Links</h3><ul>`;
+            links[section].forEach(link => {
+                linkContent.innerHTML += `<li><a href="${link.url}" target="_blank">${link.text}</a></li>`;
+            });
+            linkContent.innerHTML += "</ul>";
+            slideWindow.classList.add('active');
+        }
+
+        function closeSlide() {
+            document.getElementById('slide-window').classList.remove('active');
+        }
+    </script>
+</body>
+</html>
