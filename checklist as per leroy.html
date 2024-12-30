@@ -132,7 +132,9 @@
                     <td>Y</td>
                     <td>Y</td>
                     <td>
-                        <button class="button" onclick="toggleSlide('Configuration and Deployment Management Testing')">View Reference Links</button>
+                        <!-- <button class="button" onclick="toggleSlide('Configuration and Deployment Management Testing')">View Reference Links</button> -->
+						
+						<button class="button" onclick="toggleSlide('Potentially Unwanted Ports Open')">View Reference Links</button>
                     </td>
                     <td><input type="text" class="justification" placeholder="Justification if not covered"></td>
                 </tr>
@@ -145,10 +147,49 @@
                     <td>Y</td>
                     <td>Y</td>
                     <td>
-                        <button class="button" onclick="toggleSlide('Configuration and Deployment Management Testing')">View Reference Links</button>
+                        <button class="button" onclick="toggleSlide('Sensitive Page Accessible Publicly')">View Reference Links</button>
                     </td>
                     <td><input type="text" class="justification" placeholder="Justification if not covered"></td>
                 </tr>
+				
+				 <tr>
+                    <td>
+                        <input type="checkbox" id="c3" onclick="toggleJustification(this)">
+                        <label for="c3">Administrator Interface Publicly Exposed
+</label>
+                    </td>
+                    <td>Y</td>
+                    <td>Y</td>
+                    <td>Y</td>
+                    <td>
+                        <!-- <button class="button" onclick="toggleSlide('Configuration and Deployment Management Testing')">View Reference Links</button> -->
+						
+						<button class="button" onclick="toggleSlide('Administrator Interface Publicly Exposed')">View Reference Links</button>
+                    </td>
+                    <td><input type="text" class="justification" placeholder="Justification if not covered"></td>
+                </tr>
+                <tr>
+				
+				
+				
+				 <tr>
+                    <td>
+                        <input type="checkbox" id="c4" onclick="toggleJustification(this)">
+                        <label for="c4">Lack of Security Enforcing Response Header
+</label>
+                    </td>
+                    <td>Y</td>
+                    <td>Y</td>
+                    <td>Y</td>
+                    <td>
+                        <!-- <button class="button" onclick="toggleSlide('Configuration and Deployment Management Testing')">View Reference Links</button> -->
+						
+						<button class="button" onclick="toggleSlide('Lack of Security Enforcing Response Header')">View Reference Links</button>
+                    </td>
+                    <td><input type="text" class="justification" placeholder="Justification if not covered"></td>
+                </tr>
+                <tr>
+				
             </tbody>
         </table>
     </div>
@@ -167,11 +208,31 @@
 				 { text: "Enumerate Applications on Webserver", url: "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=23071871" },
 				  { text: "Review Webpage Content for Information Leakage", url: "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=23071879" },
 				  { text: "Identify Application Entry Points", url: "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=23071884" }
+				  
+				
 				
             ],
-            "Configuration and Deployment Management Testing": [
-                { text: "Configuration Testing Link 1", url: "https://example.com/link3" },
-                { text: "Configuration Testing Link 2", url: "https://example.com/link4" }
+            "Sensitive Page Accessible Publicly": [
+			{ text: "Test Network Infrastructure Configuration", url: "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=23073434" },
+                { text: "Test File Extensions Handling for Sensitive Information", url: "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=23073571" },
+                { text: "Test File Permission", url: "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=23073667" },
+				
+				  { text: " Test HTTP Methods", url: "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=23073618" }
+				  ,
+				  { text: "Test Cloud Storage", url: "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=23073696" }
+            ],
+			
+			"Potentially Unwanted Ports Open": [
+                { text: "Test Network Infrastructure Configuration", url: "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=23073434" }
+            ],
+			"Administrator Interface Publicly Exposed": [
+                { text: "Enumerate Infrastructure and Application Admin Interfaces", url: "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=23073607" }
+            ],
+			"Lack of Security Enforcing Response Header": [
+                { text: "Test HTTP Strict Transport Security", url: "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=23073637" },
+				{ text: "Test RIA Cross Domain Policy", url: "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=23073647"},
+				{ text: "Test for Content Security Policy", url: "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=35919592"}
+				
             ]
         };
 
