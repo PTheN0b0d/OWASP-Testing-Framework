@@ -541,72 +541,69 @@
 			
         };
 
-         function toggleJustification(checkbox) {
-            const justificationField = checkbox.closest('tr').querySelector('.justification');
-            if (checkbox.checked) {
-                justificationField.classList.add('hidden');
-                justificationField.disabled = true;
-            } else {
-                justificationField.classList.remove('hidden');
-                justificationField.disabled = false;
-            }
-            saveJustifications();
+        function toggleJustification(checkbox) {
+        const justificationField = checkbox.closest('tr').querySelector('.justification');
+        if (checkbox.checked) {
+            justificationField.classList.add('hidden');
+            justificationField.disabled = true;
+        } else {
+            justificationField.classList.remove('hidden');
+            justificationField.disabled = false;
         }
+        saveJustifications(); // Save justification state when checkbox is toggled
+    }
 
-        function saveJustifications() {
-            const justifications = {};
-            document.querySelectorAll('.justification').forEach(input => {
-                justifications[input.id] = input.value;
-            });
-            localStorage.setItem('justifications', JSON.stringify(justifications));
-        }
+    function saveJustifications() {
+        const justifications = {};
+        document.querySelectorAll('.justification').forEach(input => {
+            justifications[input.id] = input.value;
+        });
+        localStorage.setItem('justifications', JSON.stringify(justifications));
+    }
 
-        function loadJustifications() {
-            const justifications = JSON.parse(localStorage.getItem('justifications'));
-            if (justifications) {
-                for (const [id, value] of Object.entries(justifications)) {
-                    const input = document.getElementById(id);
-                    if (input) {
-                        input.value = value;
-                    }
+    function loadJustifications() {
+        const justifications = JSON.parse(localStorage.getItem('justifications'));
+        if (justifications) {
+            for (const [id, value] of Object.entries(justifications)) {
+                const input = document.getElementById(id);
+                if (input) {
+                    input.value = value;
                 }
             }
         }
+    }
 
-        function clearJustifications() {
-            localStorage.removeItem('justifications');
-            document.querySelectorAll('.justification').forEach(input => {
-                input.value = '';
-            });
-        }
+    function clearJustifications() {
+        localStorage.removeItem('justifications');
+        document.querySelectorAll('.justification').forEach(input => {
+            input.value = '';
+        });
+    }
 
-        document.getElementById('clearJustificationButton').addEventListener('click', clearJustifications);
+    document.getElementById('clearJustificationButton').addEventListener('click', clearJustifications);
 
-     function toggleSlide(section) {
-    const slideWindow = document.getElementById('slide-window');
-    const linkContent = document.getElementById('link-content');
-    linkContent.innerHTML = `<h3>${section} Reference Links</h3><ul>`;
-    
-    links[section].forEach(link => {
-        // Check if the section is "Lack of Multi-Factor Authentication (MFA)"
-        if (section === "Lack of Multi-Factor Authentication (MFA)" ||section === "No Rate Limiting") {
-            // Display text without links
-            linkContent.innerHTML += `<li>${link.text}</li>`;
-        } else {
-            // Keep the original link functionality for other sections
+    function toggleSlide(section) {
+        const slideWindow = document.getElementById('slide-window');
+        const linkContent = document.getElementById('link-content');
+        linkContent.innerHTML = `<h3>${section} Reference Links</h3><ul>`;
+        links[section].forEach(link => {
             linkContent.innerHTML += `<li><a href="${link.url}" target="_blank">${link.text}</a></li>`;
-        }
+        });
+        linkContent.innerHTML += "</ul>";
+        slideWindow.classList.add('active');
+    }
+
+    function closeSlide() {
+        document.getElementById('slide-window').classList.remove('active');
+    }
+
+    // Load justifications on page load
+    window.onload = loadJustifications;
+
+    // Add event listeners to justification inputs for saving on input
+    document.querySelectorAll('.justification').forEach(input => {
+        input.addEventListener('input', saveJustifications);
     });
-    
-    linkContent.innerHTML += "</ul>";
-    slideWindow.classList.add('active');
-}
-
-function closeSlide() {
-    document.getElementById('slide-window').classList.remove('active');
-}
-
-window.onload = loadJustifications;
-    </script>
+</script>
 </body>
 </html>
