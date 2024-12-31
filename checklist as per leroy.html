@@ -77,6 +77,7 @@
     </style>
 </head>
 <body>
+
     <h1>Pentest Checklist</h1>
     <div class="checklist">
         <table>
@@ -105,7 +106,7 @@
                     <td>
                         <button class="button" onclick="toggleSlide('Information Gathering')">View Reference Links</button>
                     </td>
-                    <td><input type="text" class="justification" placeholder="Justification if not covered"></td>
+                    <td><input type="text" class="justification" id="justification_ig1" placeholder="Justification if not covered"></td>
                 </tr>
                 <tr>
                     <td>
@@ -118,7 +119,7 @@
                     <td>
                         <button class="button" onclick="toggleSlide('Information Gathering')">View Reference Links</button>
                     </td>
-                    <td><input type="text" class="justification" placeholder="Justification if not covered"></td>
+                    <td><input type="text" class="justification" id="justification_ig2" placeholder="Justification if not covered"></td>
                 </tr>
                 <tr>
                     <td colspan="6"><strong>02. Configuration and Deployment Management Testing</strong></td>
@@ -136,7 +137,7 @@
 						
 						<button class="button" onclick="toggleSlide('Potentially Unwanted Ports Open')">View Reference Links</button>
                     </td>
-                    <td><input type="text" class="justification" placeholder="Justification if not covered"></td>
+                   <td><input type="text" class="justification" id="justification_ig3" placeholder="Justification if not covered"></td>
                 </tr>
                 <tr>
                     <td>
@@ -149,7 +150,7 @@
                     <td>
                         <button class="button" onclick="toggleSlide('Sensitive Page Accessible Publicly')">View Reference Links</button>
                     </td>
-                    <td><input type="text" class="justification" placeholder="Justification if not covered"></td>
+                    <td><input type="text" class="justification" id="justification_ig4" placeholder="Justification if not covered"></td>
                 </tr>
 				
 				 <tr>
@@ -166,7 +167,7 @@
 						
 						<button class="button" onclick="toggleSlide('Administrator Interface Publicly Exposed')">View Reference Links</button>
                     </td>
-                    <td><input type="text" class="justification" placeholder="Justification if not covered"></td>
+                 <td><input type="text" class="justification" id="justification_ig5" placeholder="Justification if not covered"></td>
                 </tr>
                 <tr>
 				
@@ -186,7 +187,7 @@
 						
 						<button class="button" onclick="toggleSlide('Lack of Security Enforcing Response Header')">View Reference Links</button>
                     </td>
-                    <td><input type="text" class="justification" placeholder="Justification if not covered"></td>
+                   <td><input type="text" class="justification" id="justification_ig6" placeholder="Justification if not covered"></td>
                 </tr>
                 <tr>
 				
@@ -209,7 +210,7 @@
 						
 						<button class="button" onclick="toggleSlide('Implementation of Weak Registration')">View Reference Links</button>
                     </td>
-                    <td><input type="text" class="justification" placeholder="Justification if not covered"></td>
+                  <td><input type="text" class="justification" id="justification_ig7" placeholder="Justification if not covered"></td>
                 </tr>
                 <tr>
                     <td>
@@ -222,7 +223,7 @@
                     <td>
                         <button class="button" onclick="toggleSlide('Account Enumeration')">View Reference Links</button>
                     </td>
-                    <td><input type="text" class="justification" placeholder="Justification if not covered"></td>
+                   <td><input type="text" class="justification" id="justification_ig8" placeholder="Justification if not covered"></td>
                 </tr>
 				
 				 <tr>
@@ -238,7 +239,7 @@
 						
 						<button class="button" onclick="toggleSlide('Username policy not compliant against group policy')">View Reference Links</button>
                     </td>
-                    <td><input type="text" class="justification" placeholder="Justification if not covered"></td>
+                  <td><input type="text" class="justification" id="justification_ig9" placeholder="Justification if not covered"></td>
                 </tr>
                 <tr>
 				
@@ -263,7 +264,7 @@
 						
 						<button class="button" onclick="toggleSlide('Default Credentials in Use')">View Reference Links</button>
                     </td>
-                    <td><input type="text" class="justification" placeholder="Justification if not covered"></td>
+                   <td><input type="text" class="justification" id="justification_ig10" placeholder="Justification if not covered"></td>
                 </tr>
                 <tr>
                     <td>
@@ -276,7 +277,7 @@
                     <td>
                         <button class="button" onclick="toggleSlide('No Account Lockout')">View Reference Links</button>
                     </td>
-                    <td><input type="text" class="justification" placeholder="Justification if not covered"></td>
+                   <td><input type="text" class="justification" id="justification_ig11" placeholder="Justification if not covered"></td>
                 </tr>
 				
 				 <tr>
@@ -292,7 +293,7 @@
 						
 						<button class="button" onclick="toggleSlide('SQL Injection')">View Reference Links</button>
                     </td>
-                    <td><input type="text" class="justification" placeholder="Justification if not covered"></td>
+                    <td><input type="text" class="justification" id="justification_ig12" placeholder="Justification if not covered"></td>
                 </tr>
                
 			
@@ -309,7 +310,7 @@
 						
 						<button class="button" onclick="toggleSlide('No Authentication')">View Reference Links</button>
                     </td>
-                    <td><input type="text" class="justification" placeholder="Justification if not covered"></td>
+                   <td><input type="text" class="justification" id="justification_ig13" placeholder="Justification if not covered"></td>
                 </tr>
 				
 				
@@ -326,7 +327,7 @@
 						
 						<button class="button" onclick="toggleSlide('Insecure Vulnerable Remember Password Implementation')">View Reference Links</button>
                     </td>
-                    <td><input type="text" class="justification" placeholder="Justification if not covered"></td>
+                   <td><input type="text" class="justification" id="justification_ig14" placeholder="Justification if not covered"></td>
                 </tr>
 				
 				
@@ -342,7 +343,7 @@
     <td>
         <button class="button" onclick="toggleSlide('Lack of Security Enforcing Response Header')">View Reference Links</button>
     </td>
-    <td><input type="text" class="justification" placeholder="Justification if not covered"></td>
+    <td><input type="text" class="justification" id="justification_ig15" placeholder="Justification if not covered"></td>
 </tr>
 
 <tr>
@@ -356,7 +357,7 @@
     <td>
         <button class="button" onclick="toggleSlide('Weak Password Policy')">View Reference Links</button>
     </td>
-    <td><input type="text" class="justification" placeholder="Justification if not covered"></td>
+    <td><input type="text" class="justification" id="justification_ig16" placeholder="Justification if not covered"></td>
 </tr>
 
 <tr>
@@ -370,7 +371,7 @@
     <td>
         <button class="button" onclick="toggleSlide('No Rate Limiting')">View Reference Links</button>
     </td>
-    <td><input type="text" class="justification" placeholder="Justification if not covered"></td>
+   <td><input type="text" class="justification" id="justification_ig17" placeholder="Justification if not covered"></td>
 </tr>
 
 <tr>
@@ -384,7 +385,7 @@
     <td>
         <button class="button" onclick="toggleSlide('Insecure Implementation of Password Change/Reset Function')">View Reference Links</button>
     </td>
-    <td><input type="text" class="justification" placeholder="Justification if not covered"></td>
+    <td><input type="text" class="justification" id="justification_ig18" placeholder="Justification if not covered"></td>
 </tr>
 
 <tr>
@@ -398,7 +399,7 @@
     <td>
         <button class="button" onclick="toggleSlide('Lack of Multi-Factor Authentication (MFA)')">View Reference Links</button>
     </td>
-    <td><input type="text" class="justification" placeholder="Justification if not covered"></td>
+    <td><input type="text" class="justification" id="justification_ig19" placeholder="Justification if not covered"></td>
 </tr>
 
 <tr>
@@ -412,7 +413,7 @@
     <td>
         <button class="button" onclick="toggleSlide('Weak Implementation of Multi-Factor Authentication (MFA)')">View Reference Links</button>
     </td>
-    <td><input type="text" class="justification" placeholder="Justification if not covered"></td>
+    <td><input type="text" class="justification" id="justification_ig20" placeholder="Justification if not covered"></td>
 </tr>
 				
 			
@@ -420,6 +421,7 @@
 			
             </tbody>
         </table>
+		 <button class="button" id="clearJustificationButton">Clear Justifications</button>
     </div>
 
     <div id="slide-window" class="slide-window">
@@ -539,17 +541,46 @@
 			
         };
 
-        function toggleJustification(checkbox) {
+         function toggleJustification(checkbox) {
             const justificationField = checkbox.closest('tr').querySelector('.justification');
-
             if (checkbox.checked) {
-                justificationField.classList.add('hidden'); // Hide the field
-                justificationField.disabled = true; // Disable the field
+                justificationField.classList.add('hidden');
+                justificationField.disabled = true;
             } else {
-                justificationField.classList.remove('hidden'); // Show the field
-                justificationField.disabled = false; // Enable the field
+                justificationField.classList.remove('hidden');
+                justificationField.disabled = false;
+            }
+            saveJustifications();
+        }
+
+        function saveJustifications() {
+            const justifications = {};
+            document.querySelectorAll('.justification').forEach(input => {
+                justifications[input.id] = input.value;
+            });
+            localStorage.setItem('justifications', JSON.stringify(justifications));
+        }
+
+        function loadJustifications() {
+            const justifications = JSON.parse(localStorage.getItem('justifications'));
+            if (justifications) {
+                for (const [id, value] of Object.entries(justifications)) {
+                    const input = document.getElementById(id);
+                    if (input) {
+                        input.value = value;
+                    }
+                }
             }
         }
+
+        function clearJustifications() {
+            localStorage.removeItem('justifications');
+            document.querySelectorAll('.justification').forEach(input => {
+                input.value = '';
+            });
+        }
+
+        document.getElementById('clearJustificationButton').addEventListener('click', clearJustifications);
 
      function toggleSlide(section) {
     const slideWindow = document.getElementById('slide-window');
@@ -574,6 +605,8 @@
 function closeSlide() {
     document.getElementById('slide-window').classList.remove('active');
 }
+
+window.onload = loadJustifications;
     </script>
 </body>
 </html>
