@@ -419,6 +419,89 @@
 </tr>
 				
 			
+			<!-- ---------------------------------- 5th ------------ -->
+			
+		<tr>
+    <td colspan="6"><strong>05. Authorization Testing</strong></td>
+</tr>
+<tr>
+    <td>
+        <input type="checkbox" id="A12" onclick="toggleJustification(this)">
+        <label for="A12">Local File Inclusion</label>
+    </td>
+    <td>Y</td>
+    <td>Y</td>
+    <td>Y</td>
+    <td>
+        <button class="button" onclick="toggleSlide('Local File Inclusion')">View Reference Links</button>
+    </td>
+    <td><input type="text" class="justification" id="justification_A12" placeholder="Justification if not covered"></td>
+</tr>
+<tr>
+    <td>
+        <input type="checkbox" id="A13" onclick="toggleJustification(this)">
+        <label for="A13">Directory Traversal</label>
+    </td>
+    <td>Y</td>
+    <td>Y/X</td>
+    <td>Y</td>
+    <td>
+        <button class="button" onclick="toggleSlide('Directory Traversal')">View Reference Links</button>
+    </td>
+    <td><input type="text" class="justification" id="justification_A13" placeholder="Justification if not covered"></td>
+</tr>
+<tr>
+    <td>
+        <input type="checkbox" id="A14" onclick="toggleJustification(this)">
+        <label for="A14">Broken Access Control</label>
+    </td>
+    <td>Y</td>
+    <td>Y/X</td>
+    <td>Y</td>
+    <td>
+        <button class="button" onclick="toggleSlide('Broken Access Control')">View Reference Links</button>
+    </td>
+    <td><input type="text" class="justification" id="justification_A14" placeholder="Justification if not covered"></td>
+</tr>
+<tr>
+    <td>
+        <input type="checkbox" id="A15" onclick="toggleJustification(this)">
+        <label for="A15">Privilege Escalation</label>
+    </td>
+    <td>Y</td>
+    <td>Y/X</td>
+    <td>Y</td>
+    <td>
+        <button class="button" onclick="toggleSlide('Privilege Escalation')">View Reference Links</button>
+    </td>
+    <td><input type="text" class="justification" id="justification_A15" placeholder="Justification if not covered"></td>
+</tr>
+<tr>
+    <td>
+        <input type="checkbox" id="A16" onclick="toggleJustification(this)">
+        <label for="A16">Insecure Direct Object References</label>
+    </td>
+    <td>Y</td>
+    <td>Y/X</td>
+    <td>Y</td>
+    <td>
+        <button class="button" onclick="toggleSlide('Insecure Direct Object References')">View Reference Links</button>
+    </td>
+    <td><input type="text" class="justification" id="justification_A16" placeholder="Justification if not covered"></td>
+</tr>
+<tr>
+    <td>
+        <input type="checkbox" id="A17" onclick="toggleJustification(this)">
+        <label for="A17">Insecure OAuth Implementation</label>
+    </td>
+    <td>Y</td>
+    <td>Y</td>
+    <td>Y</td>
+    <td>
+        <button class="button" onclick="toggleSlide('Insecure OAuth Implementation')">View Reference Links</button>
+    </td>
+    <td><input type="text" class="justification" id="justification_A17" placeholder="Justification if not covered"></td>
+</tr>	
 			
 			
             </tbody>
@@ -539,8 +622,27 @@
 
 "Weak Implementation of Multi-Factor Authentication (MFA)": [
     { "text": " Testing Multi-Factor Authentication", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=39834648" }
-]
-			
+],
+
+	<!-- ---------------------------------- 5th ------------ -->
+			"Local File Inclusion": [
+         { "text": "Testing Directory Traversal File Include", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=48269567" }
+    ],
+    "Directory Traversal": [
+        { "text": "Testing Directory Traversal File Include", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=48269567" }
+    ],
+    "Broken Access Control": [
+        { "text": "Testing for Bypassing Authorization Schema", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=48283091" }
+    ],
+    "Privilege Escalation": [
+        { "text": "Testing for Privilege Escalation", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=48286060" }
+    ],
+    "Insecure Direct Object References": [
+        { "text": "Testing for Insecure Direct Object References", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=48286269" }
+    ],
+    "Insecure OAuth Implementation": [
+        { "text": "Testing for Insecure OAuth Implementation", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=48286311" }
+    ]
         };
 
         function toggleJustification(checkbox) {
