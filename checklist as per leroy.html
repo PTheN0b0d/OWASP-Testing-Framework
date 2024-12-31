@@ -589,7 +589,14 @@
         const linkContent = document.getElementById('link-content');
         linkContent.innerHTML = `<h3>${section} Reference Links</h3><ul>`;
         links[section].forEach(link => {
-            linkContent.innerHTML += `<li><a href="${link.url}" target="_blank">${link.text}</a></li>`;
+    // Check if the section is "Lack of Multi-Factor Authentication (MFA)"
+    if (section === "Lack of Multi-Factor Authentication (MFA)" ||section === "No Rate Limiting") {
+        // Display text without links
+        linkContent.innerHTML += `<li>${link.text}</li>`;
+    } else {
+        // Keep the original link functionality for other sections
+        linkContent.innerHTML += `<li><a href="${link.url}" target="_blank">${link.text}</a></li>`;
+    }
         });
         linkContent.innerHTML += "</ul>";
         slideWindow.classList.add('active');
