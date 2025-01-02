@@ -662,6 +662,21 @@
     </td>
     <td><input type="text" class="justification" id="justification_A27" placeholder="Justification if not covered"></td>
 </tr>
+
+<tr>
+    <td>
+        <input type="checkbox" id="A27random" onclick="toggleJustification(this)">
+        <label for="A27random">HTTP Parameter Pollution</label>
+    </td>
+    <td>Y</td>
+    <td>Y</td>
+    <td>Y</td>
+    <td>
+        <button class="button" onclick="toggleSlide('HTTP Parameter Pollution')">View Reference Links</button>
+    </td>
+    <td><input type="text" class="justification" id="justification_A27random" placeholder="Justification if not covered"></td>
+</tr>
+
 <tr>
     <td>
         <input type="checkbox" id="A28" onclick="toggleJustification(this)">
@@ -1111,22 +1126,22 @@
     <script>
         const links = {
             "Information Gathering": [
-                { text: "Conduct Search Engine Discovery Reconnaissance for Information Leakage", url: "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=22699424" },
-                { text: "Fingerprint Web Server", url: "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=23071851" },
-				 { text: "Review Webserver Metafiles for Information Leakage", url: "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=23071861" },
-				 { text: "Enumerate Applications on Webserver", url: "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=23071871" },
-				  { text: "Review Webpage Content for Information Leakage", url: "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=23071879" },
+                { text: "Conduct Search Engine Discovery Reconnaissance for Information Leakage<br< <br>", url: "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=22699424" },
+                { text: "Fingerprint Web Server<br< <br>", url: "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=23071851" },
+				 { text: "Review Webserver Metafiles for Information Leakage<br< <br>", url: "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=23071861" },
+				 { text: "Enumerate Applications on Webserver<br< <br>", url: "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=23071871" },
+				  { text: "Review Webpage Content for Information Leakage<br< <br>", url: "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=23071879" },
 				  { text: "Identify Application Entry Points", url: "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=23071884" }
 				  
 				
 				
             ],
             "Sensitive Page Accessible Publicly": [
-			{ text: "Test Network Infrastructure Configuration", url: "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=23073434" },
-                { text: "Test File Extensions Handling for Sensitive Information", url: "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=23073571" },
-                { text: "Test File Permission", url: "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=23073667" },
+			{ text: "Test Network Infrastructure Configuration<br< <br>", url: "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=23073434" },
+                { text: "Test File Extensions Handling for Sensitive Information<br< <br>", url: "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=23073571" },
+                { text: "Test File Permission<br< <br>", url: "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=23073667" },
 				
-				  { text: " Test HTTP Methods", url: "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=23073618" }
+				  { text: " Test HTTP Methods<br< <br>", url: "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=23073618" }
 				  ,
 				  { text: "Test Cloud Storage", url: "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=23073696" }
             ],
@@ -1138,8 +1153,8 @@
                 { text: "Enumerate Infrastructure and Application Admin Interfaces", url: "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=23073607" }
             ],
 			"Lack of Security Enforcing Response Header": [
-                { text: "Test HTTP Strict Transport Security", url: "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=23073637" },
-				{ text: "Test RIA Cross Domain Policy", url: "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=23073647"},
+                { text: "Test HTTP Strict Transport Security<br< <br>", url: "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=23073637" },
+				{ text: "Test RIA Cross Domain Policy<br< <br>", url: "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=23073647"},
 				{ text: "Test for Content Security Policy", url: "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=35919592"}
 				
             ],
@@ -1277,62 +1292,67 @@
 			<!-- ---------------------------------- 7th ------------ -->
 			
 			 "Reflected Cross Site Scripting": [
-        { "text": "Testing for Reflected XSS", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=39834061" }
+        { "text": "Testing for Reflected Cross Site Scripting", "url": "https://github.com/users/PTheN0b0d/projects/1?pane=issue&itemId=72728295" }
     ],
     "Stored Cross Site Scripting": [
-        { "text": "Testing for Stored XSS", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=39834062" }
+        { "text": "Testing for Stored Cross Site Scripting", "url": "https://github.com/users/PTheN0b0d/projects/1?pane=issue&itemId=72735965" }
     ],
+	
+	"HTTP Parameter Pollution": [
+        { "text": "Testing for HTTP Parameter Pollution", "url": "https://github.com/users/PTheN0b0d/projects/1?pane=issue&itemId=72746236" }
+    ],
+	
     "SQL Injection": [
-        { "text": "Testing for SQL Injection", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=39834063" }
+        { "text": "Testing for SQL Injection", "url": "https://github.com/users/PTheN0b0d/projects/1?pane=issue&itemId=72750659" }
     ],
     "LDAP Injection": [
-        { "text": "Testing for LDAP Injection", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=39834064" }
+        { "text": "Testing for LDAP Injection", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=79828894" }
     ],
     "XML Injection": [
-        { "text": "Testing for XML Injection", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=39834065" }
+        { "text": "Testing for XML Injection", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=79839426" }
     ],
     "SSI Injection": [
-        { "text": "Testing for SSI Injection", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=39834066" }
+        { "text": "Testing for SSI Injection", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=79839853" }
     ],
     "XPath Injection": [
-        { "text": "Testing for XPath Injection", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=39834067" }
+        { "text": "Testing for XPath Injection", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=79841000" }
     ],
     "IMAP SMTP Injection": [
-        { "text": "Testing for IMAP SMTP Injection", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=39834068" }
+        { "text": "Testing for IMAP SMTP Injection", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=79846702" }
     ],
     "Code Injection": [
-        { "text": "Testing for Code Injection", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=39834069" }
+        { "text": "Testing for Code Injection", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=80611555" }
     ],
     "File Inclusion": [
-        { "text": "Testing for File Inclusion", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=39834070" }
+        { "text": "Testing for File Inclusion", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=80611842" }
     ],
     "Command Injection": [
-        { "text": "Testing for Command Injection", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=39834071" }
+        { "text": "Testing for Command Injection", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=80622707" }
     ],
     "HTTP Response Splitting": [
-        { "text": "Testing for HTTP Response Splitting", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=39834072" }
+        { "text": "Testing for HTTP Response Splitting", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=80633106" }
     ],
     "HTTP Request Smuggling": [
-        { "text": "Testing for HTTP Request Smuggling", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=39834073" }
+        { "text": "Testing for HTTP Request Smuggling", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=80633106" }
     ],
     "Host Header Injection": [
-        { "text": "Testing for Host Header Injection", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=39834074" }
+        { "text": "Testing for Host Header Injection", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=80647180" }
     ],
     "Server-side Template Injection": [
-        { "text": "Testing for Server-side Template Injection", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=39834075" }
+        { "text": "Testing for Server-side Template Injection", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=80647736" }
     ],
     "Server-Side Request Forgery": [
-        { "text": "Testing for Server-Side Request Forgery", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=39834076" }
+        { "text": "Testing for Server-Side Request Forgery", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=80677785" }
     ],
     "Mass Assignment": [
-        { "text": "Testing for Mass Assignment", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=39834077" }
+        { "text": "Testing for Mass Assignment", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=80678827" }
     ],
 			
 			
 				<!-- ---------------------------------- 8th ------------ -->
 				
 				"Default Error Message Disclosed": [
-        { "text": "Testing for Default Error Message Disclosure", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=39834078" }
+        { "text": "Testing for Default Error Message Disclosure", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=80682454" }
     ],
 				
 				
@@ -1340,54 +1360,70 @@
 					
 					
 					"Weak TLS Security": [
-        { "text": "Testing for Weak TLS Security", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=39834079" }
+        { "text": "Testing for Weak TLS Security<br< <br>", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=80725331" },
+		
+		 { "text": "Testing for Padding Oracle <br< <br>", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=80746982" },
+		 
+		  { "text": "Testing for Weak Encryption", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=83199944" }
     ],
     "Unencrypted Communication": [
-        { "text": "Testing for Unencrypted Communication", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=39834080" }
+        { "text": " Testing for Sensitive Information Sent via Unencrypted Channels", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=83199894" }
     ],
 					
 					
 						<!-- ---------------------------------- 10th ------------ -->
 						
 						 "Insufficient Business Logic Enforcement": [
-        { "text": "Testing for Insufficient Business Logic Enforcement", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=39834081" }
+        { "text": "Introduction to Business Logic Testing<br><br>", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=83202052" },
+		
+		{ "text": "Test Business Logic Data Validation", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=83202143" }
     ],
     "Information Inference": [
-        { "text": "Testing for Information Inference", "url": "https://github .com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=39834082" }
+        { "text": "Test Integrity Checks <br><br>", "url": 		"https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=83885717" },
+		
+		 { "text": "Test for Process Timing", "url": 		"https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=83887178" }
     ],
     "No Rate Limiting": [
-        { "text": "Testing for No Rate Limiting", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=39834083" }
+        { "text": "Test Number of Times a Function Can Be Used Limits<br> <br>", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=83891458" },
+		
+		  { "text": "Testing for the Circumvention of Work Flows<br> <br>", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=83891458" },
+		  
+		   { "text": "Testing for the Circumvention of Work Flows", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=83895477" }
     ],
     "Unrestricted File Upload": [
-        { "text": "Testing for Unrestricted File Upload", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=39834084" }
+        { "text": "Test Upload of Unexpected File Types ", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=83982341" }
+		
+	
     ],
     "No Anti-Virus Scanning Present": [
-        { "text": "Testing for No Anti-Virus Scanning Present", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=39834085" }
+        { "text": " Test Upload of Malicious Files", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=83984461" }
     ],
 						
 						
 							<!-- ---------------------------------- 11th ------------ -->
 							
 					"DOM-Based XSS": [
-        { "text": "Testing for DOM-Based XSS", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=39834086" }
+        { "text": "Testing for DOM-Based Cross Site Scripting <br> <br>", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=83987871" },
+		
+		  { "text": "Testing for JavaScript Execution", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=84013087" }
     ],
     "HTML Injection": [
-        { "text": "Testing for HTML Injection", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=39834087" }
+        { "text": "Testing for HTML Injection", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=84013971" }
     ],
     "Open Redirection (DOM-Based)": [
-        { "text": "Testing for Open Redirection (DOM-Based)", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=39834088" }
+        { "text": "Testing for Client-side URL Redirect", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=84014302" }
     ],
     "CSS Injection": [
-        { "text": "Testing for CSS Injection", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=39834089" }
+        { "text": "Testing for CSS Injection", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=84024506" }
     ],
     "CORS: Arbitrary Origin Allowed": [
-        { "text": "Testing for CORS: Arbitrary Origin Allowed", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=39834090" }
+        { "text": "esting Cross Origin Resource Sharing", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=84028255" }
     ],
     "Clickjacking": [
-        { "text": "Testing for Clickjacking", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=39834091" }
+        { "text": "Testing for Clickjacking", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=84029850" }
     ],
     "Sensitive Information in Local/Browser Storage": [
-        { "text": "Testing for Sensitive Information in Local/Browser Storage", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=39834092" }
+        { "text": "Testing for Browser Storage", "url": "https://github.com/users/PTheN0b0d/projects/1/views/1?pane=issue&itemId=84036004" }
     ]		
 								<!-- ---------------------------------- 12th ------------ -->
 	
